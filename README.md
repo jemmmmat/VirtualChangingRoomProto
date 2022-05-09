@@ -1,2 +1,0 @@
-# VirtualChangingRoomProto
-Tämä on prototyyppi
