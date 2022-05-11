@@ -1,43 +1,3 @@
-//----------------------------Help popup---------------------------------
-function openPopUp() {
-    document.querySelector(".popup").style.display = "block";
-    document.querySelector(".main").style.filter = "blur(3px)";
-    document.querySelector(".right").styly.display = "disabled";
-    document.querySelector(".right").style.filter = "blur(3px)";
-    document.querySelector(".scrollableDiv").style.filter = "blur(3px)";
-    
-    if(event.target.id != "popup")
-    { 
-        document.getElementById("popup").style.display = "none";
-      }
-}
-function closePopUp() {
-    document.querySelector(".popup").style.display = "none";
-    document.querySelector(".main").style.filter = "none";
-    document.querySelector(".right").style.filter = "none";
-    document.querySelector(".scrollableDiv").style.filter = "none";
-    
-    if(event.target.id != "popup")
-    { 
-        document.getElementById("popup").style.display = "none";
-      }
-}
-
-
-//---------------------------Rating form popup--------------------------------
-function openForm() {
-    document.querySelector(".popupRate").style.display = "block";
-    document.querySelector(".main").style.filter = "blur(3px)";
-    document.querySelector(".right").style.filter = "blur(3px)";
-    document.querySelector(".scrollableDiv").style.filter = "blur(3px)";
-
-}
-function closeForm() {
-    document.querySelector(".popupRate").style.display = "none";
-    document.querySelector(".main").style.filter = "none";
-    document.querySelector(".right").style.filter = "none";
-    document.querySelector(".scrollableDiv").style.filter = "none";
-}
 
 //download img from filesystem
 function choose() {
@@ -83,6 +43,7 @@ document.onclick = function (e) {
     if (e.target.id !== "mySidebar") {
         if (e.target.offsetParent && e.target.offsetParent.id !== "mySidebar")
             closeNav();
+            createAlertPopup();
     }
 };
 
@@ -109,6 +70,7 @@ function addClothes(id) {
 
         //   deleteBtn.setAttribute("onclick","deleteC;");
         mamaDiv.setAttribute("class", "dragme");
+
     } else if (id == "ainikki_turko") {
         var i = new Image();
         var Imgdiv = document.getElementById("img");
@@ -129,6 +91,7 @@ function addClothes(id) {
         deleteBtn.innerText = "X";
         // deleteBtn.setAttribute("onclick","deleteC;");
         mamaDiv.setAttribute("class", "dragme");
+
     } else if (id == "aitimeri") {
         var i = new Image();
         var Imgdiv = document.getElementById("img");
@@ -149,7 +112,6 @@ function addClothes(id) {
         deleteBtn.innerText = "X";
         // deleteBtn.setAttribute("onclick","deleteC;");
         mamaDiv.setAttribute("class", "dragme");
-
 
     } else if (id == "sinikorvis") {
         var i = new Image();
