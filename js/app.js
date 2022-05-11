@@ -109,7 +109,7 @@ function addClothes(id) {
 
         //   deleteBtn.setAttribute("onclick","deleteC;");
         mamaDiv.setAttribute("class", "dragme");
-    } else if (id == "pinkki") {
+    } else if (id == "ainikki_turko") {
         var i = new Image();
         var Imgdiv = document.getElementById("img");
         var mamaDiv = document.createElement("div");
@@ -123,7 +123,49 @@ function addClothes(id) {
             Imgdiv.appendChild(mamaDiv);
             rotateDiv.setAttribute("class", "rotation-handle");
         };
-        i.src = "clothes/sininen_poncho.png";
+        i.src = "clothes/Ainikki-blue.png";
+        // i.setAttribute("class", "resizeme");
+        deleteBtn.setAttribute("id", "deleteCBtn");
+        deleteBtn.innerText = "X";
+        // deleteBtn.setAttribute("onclick","deleteC;");
+        mamaDiv.setAttribute("class", "dragme");
+    } else if (id == "aitimeri") {
+        var i = new Image();
+        var Imgdiv = document.getElementById("img");
+        var mamaDiv = document.createElement("div");
+        var rotateDiv = document.createElement("div");
+        var deleteBtn = document.createElement("button");
+
+        i.onload = function () {
+            mamaDiv.appendChild(i);
+            mamaDiv.appendChild(rotateDiv);
+            mamaDiv.appendChild(deleteBtn);
+            Imgdiv.appendChild(mamaDiv);
+            rotateDiv.setAttribute("class", "rotation-handle");
+        };
+        i.src = "clothes/aitimeri,musta.png";
+        // i.setAttribute("class", "resizeme");
+        deleteBtn.setAttribute("id", "deleteCBtn");
+        deleteBtn.innerText = "X";
+        // deleteBtn.setAttribute("onclick","deleteC;");
+        mamaDiv.setAttribute("class", "dragme");
+
+
+    } else if (id == "sinikorvis") {
+        var i = new Image();
+        var Imgdiv = document.getElementById("img");
+        var mamaDiv = document.createElement("div");
+        var rotateDiv = document.createElement("div");
+        var deleteBtn = document.createElement("button");
+
+        i.onload = function () {
+            mamaDiv.appendChild(i);
+            mamaDiv.appendChild(rotateDiv);
+            mamaDiv.appendChild(deleteBtn);
+            Imgdiv.appendChild(mamaDiv);
+            rotateDiv.setAttribute("class", "rotation-handle");
+        };
+        i.src = "clothes/korvis_sininen.png";
         // i.setAttribute("class", "resizeme");
         deleteBtn.setAttribute("id", "deleteCBtn");
         deleteBtn.innerText = "X";
@@ -340,6 +382,8 @@ function addClothes(id) {
             event.target.getAttribute("data-angle") +
             "rad" +
             ")";
+            
+           
     }
 
     // this function is used later in the resizing and gesture demos
@@ -396,5 +440,6 @@ function addClothes(id) {
         var angle = Math.atan2(center.y - event.clientY, center.x - event.clientX);
 
         return angle - startAngle;
+        
     }
 }
