@@ -55,7 +55,7 @@ body {
   margin: 3px;
   height: 200px;
   width: 200px;
-  background-size: cover;
+  background-size: 100% 100%;
   /*These are important for touch actions*/
   touch-action: none;
   user-select: none;
@@ -84,6 +84,8 @@ body {
   bottom: -35px;
   border: 1px solid rgba(128, 128, 128, 0.372);
   background-color: rgba(128, 128, 128, 0.384);
+  background-size: 100% 100%;
+
   cursor: move;
   /*These are important for touch actions*/
   touch-action: none;
