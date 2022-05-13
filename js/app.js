@@ -145,11 +145,10 @@ function addClothes(id) {
             angle: 0,
             scale: 1
         }
-        var gestureArea = document.getElementById('dragme')
-        var scaleElement = document.getElementById('dragme')
+        var scaleElement = document.getElementsByClassName('dragme')
         var resetTimeout
 
-        interact(gestureArea)
+        interact(".dragme")
             .gesturable({
                 listeners: {
                     start(event) {
