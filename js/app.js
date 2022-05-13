@@ -302,7 +302,7 @@ function addClothes(id) {
             //rotate
           //   var angle = 0
 
-            interact('#rotation-handle').gesturable({
+            interact('.rotation-handle').gesturable({
                 listeners: {
                     move(event) {
                         var arrow = document.getElementById('arrow')
