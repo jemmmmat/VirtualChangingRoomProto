@@ -157,7 +157,10 @@ function addClothes(id) {
                 interact.modifiers.restrict({
                     restriction: "parent",
                     endOnly: true,
+                    elementRect: { left: 0, right: 0, top: 1, bottom: 1 },
+
                 }),
+
             ],
             listeners: {
                 start(event) {
@@ -239,6 +242,8 @@ function addClothes(id) {
                 interact.modifiers.restrict({
                     restriction: "parent",
                     endOnly: true,
+                    elementRect: { left: 0, right: 0, top: 1, bottom: 1 },
+
                 }),
             ],
         });
@@ -258,6 +263,8 @@ function addClothes(id) {
             interact.modifiers.restrict({
                 restriction: "parent",
                 endOnly: true,
+                elementRect: { left: 0, right: 0, top: 1, bottom: 1 },
+
             }),
         ],
         // enable autoScroll
@@ -306,6 +313,7 @@ function addClothes(id) {
 
             // call this function on every dragend event
             end(event) {
+
                 var textEl = event.target.querySelector("p");
 
                 textEl &&
@@ -324,6 +332,7 @@ function addClothes(id) {
     function dragMoveListener(event) {
         var target = event.target;
 
+        // Bring element in front of its siblings
         // keep the dragged position in the data-x/data-y attributes
         var x = (parseFloat(target.getAttribute("data-x")) || 0) + event.dx;
         var y = (parseFloat(target.getAttribute("data-y")) || 0) + event.dy;
@@ -348,6 +357,10 @@ function addClothes(id) {
         event.target.style.transform =
             'translate(' + event.target.getAttribute('data-x') + 'px, '
             + event.target.getAttribute('data-y') + 'px) rotate(' + event.target.getAttribute('data-angle') + 'rad' + ')';
+        var t = event.target;
+
+        // Bring element in front of its siblings
+        t.parentNode.appendChild(target);
 
     }
 
