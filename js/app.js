@@ -139,461 +139,274 @@ function addClothes(id) {
 
     //Draggable code
     //every draggable item has dragme-class
-
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        var angleScale = {
-            angle: 0,
-            scale: 1
-        }
-        var scaleElement = document.getElementsByClassName('dragme')
-        var resetTimeout
-
-        interact(".dragme")
-            .gesturable({
-                listeners: {
-                    start(event) {
-                        angleScale.angle -= event.angle
-
-                        clearTimeout(resetTimeout)
-                        scaleElement.classList.remove('reset')
-                    },
-                    move(event) {
-                        // document.body.appendChild(new Text(event.scale))
-                        var currentAngle = event.angle + angleScale.angle
-                        var currentScale = event.scale * angleScale.scale
-
-                        scaleElement.style.transform =
-                            'rotate(' + currentAngle + 'deg)' + 'scale(' + currentScale + ')'
-
-                        // uses the dragMoveListener from the draggable demo above
-                        dragMoveListener(event)
-                    },
-                    end(event) {
-                        angleScale.angle = angleScale.angle + event.angle
-                        angleScale.scale = angleScale.scale * event.scale
-
-                        resetTimeout = setTimeout(reset, 1000)
-                        scaleElement.classList.add('reset')
-                    }
-                }
-            })
-            .draggable({
-                listeners: { move: dragMoveListener }
-            })
-
-        function reset() {
-            scaleElement.style.transform = 'scale(1)'
-
-            angleScale.angle = 0
-            angleScale.scale = 1
-
-            //--------------------------------draggable--------------------------------------
-            // target elements with the "draggable" class
-            interact(".dragme").draggable({
-                // enable inertial throwing
-                inertia: true,
-                // keep the element within the area of it's parent
-                modifiers: [
-                    interact.modifiers.restrictRect({
-                        restriction: "parent",
-                        endOnly: true,
-                    }),
-
-                    interact.modifiers.restrict({
-                        restriction: "parent",
-                        endOnly: true,
-                    }),
-                ],
-                // enable autoScroll
-                autoScroll: true,
-
-                listeners: {
-                    // call this function on every dragmove event
-                    move: dragMoveListener,
-
-                    // call this function on every dragend event
-                    end(event) {
-                        var textEl = event.target.querySelector("p");
-
-                        textEl &&
-                            (textEl.textContent =
-                                "moved a distance of " +
-                                Math.sqrt(
-                                    (Math.pow(event.pageX - event.x0, 2) +
-                                        Math.pow(event.pageY - event.y0, 2)) |
-                                    0
-                                ).toFixed(2) +
-                                "px");
-                    },
-                },
-            });
-
-            // target elements with the "draggable" class
-            interact(".dragme").draggable({
-                // enable inertial throwing
-                inertia: true,
-                // keep the element within the area of it's parent
-                modifiers: [
-                    interact.modifiers.restrictRect({
-                        restriction: "parent",
-                        //endOnly: true
-                        /*   interact.modifiers.restrictEdges({
-                                                   outer: 'parent'*/
-                    }),
-                ],
-                // enable autoScroll
-                autoScroll: true,
-
-                listeners: {
-                    // call this function on every dragmove event
-                    move: dragMoveListener,
-
-                    // call this function on every dragend event
-                    end(event) {
-                        var textEl = event.target.querySelector("p");
-
-                        textEl &&
-                            (textEl.textContent =
-                                "moved a distance of " +
-                                Math.sqrt(
-                                    (Math.pow(event.pageX - event.x0, 2) +
-                                        Math.pow(event.pageY - event.y0, 2)) |
-                                    0
-                                ).toFixed(2) +
-                                "px");
-                    },
-                },
-            });
-
-            function dragMoveListener(event) {
-                var target = event.target;
-
-                // keep the dragged position in the data-x/data-y attributes
-                var x = (parseFloat(target.getAttribute("data-x")) || 0) + event.dx;
-                var y = (parseFloat(target.getAttribute("data-y")) || 0) + event.dy;
-                var angle = event.target.setAttribute(
-                    "data-angle",
-                    parseFloat(event.target.dataset.angle) || 0
-                );
-
-                target.style.transform = "translate(" + x + "px, " + y + "px)";
-                target.style.transform = "translate(" + x + y + angle + "rad)";
-
-                // update the position coordinates
-                target.setAttribute("data-x", x);
-                target.setAttribute("data-y", y);
-
-                target.getAttribute("data-y") +
-                    "px) rotate(" +
-                    event.target.getAttribute("data-angle") +
-                    "rad" +
-                    ")";
-
-                event.target.style.transform =
-                    'translate(' + event.target.getAttribute('data-x') + 'px, '
-                    + event.target.getAttribute('data-y') + 'px) rotate(' + event.target.getAttribute('data-angle') + 'rad' + ')';
-
-            }
-
-            // this function is used later in the resizing and gesture demos
-            // window.dragMoveListener = dragMoveListener;
-
-            //rotate
-          //   var angle = 0
-
-            interact('.rotation-handle').gesturable({
-                listeners: {
-                    move(event) {
-                        var arrow = document.getElementById('arrow')
-
-                        angle += event.da
-
-                        arrow.style.transform = 'rotate(' + angle + 'deg)'
-
-                        document.getElementById('angle-info').textContent =
-                            angle.toFixed(2) + '\u00b0'
-                    }
-                }
-            })
-        }
-
-    } else {
-        //-----------------------------------------------------ANDOROID TESTI LOPPUUU-----------------------------------------------
-        //-----------------------------------------------------ANDOROID TESTI LOPPUUU-----------------------------------------------
-        //-----------------------------------------------------ANDOROID TESTI LOPPUUU-----------------------------------------------
-        //-----------------------------------------------------ANDOROID TESTI LOPPUUU-----------------------------------------------
-        //-----------------------------------------------------ANDOROID TESTI LOPPUUU-----------------------------------------------
-        //-----------------------------------------------------ANDOROID TESTI LOPPUUU-----------------------------------------------
-        //-----------------------------------------------------ANDOROID TESTI LOPPUUU-----------------------------------------------
-
-        interact(".dragme")
-            .resizable({
-                // resize from all edges and corners
-                allowFrom: ".dragme",
-                edges: { left: true, right: true, bottom: true, top: true },
-                modifiers: [
-                    // keep the edges inside the parent
-                    interact.modifiers.restrictEdges({
-                        outer: "parent",
-                        restriction: "parent",
-                    }),
-                    interact.modifiers.restrictSize({
-                        min: { width: 50, height: 50 },
-                        max: { width: 300, height: 300 },
-                    }),
-                    interact.modifiers.restrict({
-                        restriction: "parent",
-                        endOnly: true,
-                    }),
-                ],
-                listeners: {
-                    start(event) {
-                        console.log("resizetaan....");
-                        if (
-                            event._interaction.downEvent.path[0].classList.contains(
-                                "rotation-handle"
-                            )
-                        ) {
-                            const element = event.target;
-                            const rect = element.getBoundingClientRect();
-
-                            // store the center as the element has css `transform-origin: center center`
-                            element.dataset.centerX = rect.left + rect.width / 2;
-                            element.dataset.centerY = rect.top + rect.height / 2;
-                            // get the angle of the element when the drag starts
-                            element.dataset.angle = getDragAngle(event);
-                        }
-                    },
-                    move(event) {
-                        console.log("resizetaan ja liikutaan");
-
-                        let x = parseFloat(event.target.getAttribute("data-x")) || 0;
-                        let y = parseFloat(event.target.getAttribute("data-y")) || 0;
-                        let angle = parseFloat(event.target.getAttribute("data-angle")) || 0;
-
-                        console.log("rotation");
-                        if (
-                            event._interaction.downEvent.path[0].classList.contains(
-                                "rotation-handle"
-                            )
-                        ) {
-                            angle = getDragAngle(event);
-                        } else {
-                            // update the element's style
-                            event.target.style.width = event.rect.width + "px";
-                            event.target.style.height = event.rect.height + "px";
-
-                            // translate when resizing from top or left edges
-                            x += event.deltaRect.left;
-                            y += event.deltaRect.top;
-
-                            event.target.setAttribute("data-x", x);
-                            event.target.setAttribute("data-y", y);
-                        }
-
-                        event.target.style.transform =
-                            "translate(" +
-                            event.target.getAttribute("data-x") +
-                            "px," +
-                            event.target.getAttribute("data-y") +
-                            "px) rotate(" +
-                            angle +
-                            "rad" +
-                            ")";
-                    },
-                    end(event) {
-                        console.log("resizetaan....lopetetaan?");
-
-                        if (
-                            event._interaction.downEvent.path[0].classList.contains(
-                                "rotation-handle"
-                            )
-                        ) {
-                            event.target.dataset.angle = getDragAngle(event);
-                        }
-                    },
-                },
-            })
-
-            .draggable({
-                listeners: { move: window.dragMoveListener },
-                inertia: true,
-                modifiers: [
-                    interact.modifiers.restrictRect({
-                        restriction: "parent",
-                        endOnly: true,
-                    }),
-                    interact.modifiers.restrict({
-                        restriction: "parent",
-                        endOnly: true,
-                    }),
-                ],
-            });
-
-        //--------------------------------draggable--------------------------------------
-        // target elements with the "draggable" class
-        interact(".dragme").draggable({
-            // enable inertial throwing
-            inertia: true,
-            // keep the element within the area of it's parent
+    interact(".dragme")
+        .resizable({
+            // resize from all edges and corners
+            allowFrom: ".dragme",
+            edges: { left: true, right: true, bottom: true, top: true },
             modifiers: [
-                interact.modifiers.restrictRect({
+                // keep the edges inside the parent
+                interact.modifiers.restrictEdges({
+                    outer: "parent",
                     restriction: "parent",
-                    endOnly: true,
                 }),
-
+                interact.modifiers.restrictSize({
+                    min: { width: 50, height: 50 },
+                    max: { width: 300, height: 300 },
+                }),
                 interact.modifiers.restrict({
                     restriction: "parent",
                     endOnly: true,
                 }),
             ],
-            // enable autoScroll
-            autoScroll: true,
-
             listeners: {
-                // call this function on every dragmove event
-                move: dragMoveListener,
+                start(event) {
+                    console.log("resizetaan....");
+                    if (
+                        event._interaction.downEvent.path[0].classList.contains(
+                            "rotation-handle"
+                        )
+                    ) {
+                        const element = event.target;
+                        const rect = element.getBoundingClientRect();
 
-                // call this function on every dragend event
+                        // store the center as the element has css `transform-origin: center center`
+                        element.dataset.centerX = rect.left + rect.width / 2;
+                        element.dataset.centerY = rect.top + rect.height / 2;
+                        // get the angle of the element when the drag starts
+                        element.dataset.angle = getDragAngle(event);
+                    }
+                },
+                move(event) {
+                    console.log("resizetaan ja liikutaan");
+
+                    let x = parseFloat(event.target.getAttribute("data-x")) || 0;
+                    let y = parseFloat(event.target.getAttribute("data-y")) || 0;
+                    let angle = parseFloat(event.target.getAttribute("data-angle")) || 0;
+
+                    console.log("rotation");
+                    if (
+                        event._interaction.downEvent.path[0].classList.contains(
+                            "rotation-handle"
+                        )
+                    ) {
+                        angle = getDragAngle(event);
+                    } else {
+                        // update the element's style
+                        event.target.style.width = event.rect.width + "px";
+                        event.target.style.height = event.rect.height + "px";
+
+                        // translate when resizing from top or left edges
+                        x += event.deltaRect.left;
+                        y += event.deltaRect.top;
+
+                        event.target.setAttribute("data-x", x);
+                        event.target.setAttribute("data-y", y);
+                    }
+
+                    event.target.style.transform =
+                        "translate(" +
+                        event.target.getAttribute("data-x") +
+                        "px," +
+                        event.target.getAttribute("data-y") +
+                        "px) rotate(" +
+                        angle +
+                        "rad" +
+                        ")";
+                },
                 end(event) {
-                    var textEl = event.target.querySelector("p");
+                    console.log("resizetaan....lopetetaan?");
 
-                    textEl &&
-                        (textEl.textContent =
-                            "moved a distance of " +
-                            Math.sqrt(
-                                (Math.pow(event.pageX - event.x0, 2) +
-                                    Math.pow(event.pageY - event.y0, 2)) |
-                                0
-                            ).toFixed(2) +
-                            "px");
+                    if (
+                        event._interaction.downEvent.path[0].classList.contains(
+                            "rotation-handle"
+                        )
+                    ) {
+                        event.target.dataset.angle = getDragAngle(event);
+                    }
                 },
             },
-        });
+        })
 
-        // target elements with the "draggable" class
-        interact(".dragme").draggable({
-            // enable inertial throwing
+        .draggable({
+            listeners: { move: window.dragMoveListener },
             inertia: true,
-            // keep the element within the area of it's parent
             modifiers: [
                 interact.modifiers.restrictRect({
                     restriction: "parent",
-                    //endOnly: true
-                    /*   interact.modifiers.restrictEdges({
-                                               outer: 'parent'*/
+                    endOnly: true,
+                }),
+                interact.modifiers.restrict({
+                    restriction: "parent",
+                    endOnly: true,
                 }),
             ],
-            // enable autoScroll
-            autoScroll: true,
-
-            listeners: {
-                // call this function on every dragmove event
-                move: dragMoveListener,
-
-                // call this function on every dragend event
-                end(event) {
-                    var textEl = event.target.querySelector("p");
-
-                    textEl &&
-                        (textEl.textContent =
-                            "moved a distance of " +
-                            Math.sqrt(
-                                (Math.pow(event.pageX - event.x0, 2) +
-                                    Math.pow(event.pageY - event.y0, 2)) |
-                                0
-                            ).toFixed(2) +
-                            "px");
-                },
-            },
         });
 
-        function dragMoveListener(event) {
-            var target = event.target;
+    //--------------------------------draggable--------------------------------------
+    // target elements with the "draggable" class
+    interact(".dragme").draggable({
+        // enable inertial throwing
+        inertia: true,
+        // keep the element within the area of it's parent
+        modifiers: [
+            interact.modifiers.restrictRect({
+                restriction: "parent",
+                endOnly: true,
+            }),
 
-            // keep the dragged position in the data-x/data-y attributes
-            var x = (parseFloat(target.getAttribute("data-x")) || 0) + event.dx;
-            var y = (parseFloat(target.getAttribute("data-y")) || 0) + event.dy;
-            var angle = event.target.setAttribute(
-                "data-angle",
-                parseFloat(event.target.dataset.angle) || 0
-            );
+            interact.modifiers.restrict({
+                restriction: "parent",
+                endOnly: true,
+            }),
+        ],
+        // enable autoScroll
+        autoScroll: true,
 
-            target.style.transform = "translate(" + x + "px, " + y + "px)";
-            target.style.transform = "translate(" + x + y + angle + "rad)";
+        listeners: {
+            // call this function on every dragmove event
+            move: dragMoveListener,
 
-            // update the position coordinates
-            target.setAttribute("data-x", x);
-            target.setAttribute("data-y", y);
+            // call this function on every dragend event
+            end(event) {
+                var textEl = event.target.querySelector("p");
 
-            target.getAttribute("data-y") +
+                textEl &&
+                    (textEl.textContent =
+                        "moved a distance of " +
+                        Math.sqrt(
+                            (Math.pow(event.pageX - event.x0, 2) +
+                                Math.pow(event.pageY - event.y0, 2)) |
+                            0
+                        ).toFixed(2) +
+                        "px");
+            },
+        },
+    });
+
+    // target elements with the "draggable" class
+    interact(".dragme").draggable({
+        // enable inertial throwing
+        inertia: true,
+        // keep the element within the area of it's parent
+        modifiers: [
+            interact.modifiers.restrictRect({
+                restriction: "parent",
+                //endOnly: true
+                /*   interact.modifiers.restrictEdges({
+                                           outer: 'parent'*/
+            }),
+        ],
+        // enable autoScroll
+        autoScroll: true,
+
+        listeners: {
+            // call this function on every dragmove event
+            move: dragMoveListener,
+
+            // call this function on every dragend event
+            end(event) {
+                var textEl = event.target.querySelector("p");
+
+                textEl &&
+                    (textEl.textContent =
+                        "moved a distance of " +
+                        Math.sqrt(
+                            (Math.pow(event.pageX - event.x0, 2) +
+                                Math.pow(event.pageY - event.y0, 2)) |
+                            0
+                        ).toFixed(2) +
+                        "px");
+            },
+        },
+    });
+
+    function dragMoveListener(event) {
+        var target = event.target;
+
+        // keep the dragged position in the data-x/data-y attributes
+        var x = (parseFloat(target.getAttribute("data-x")) || 0) + event.dx;
+        var y = (parseFloat(target.getAttribute("data-y")) || 0) + event.dy;
+        var angle = event.target.setAttribute(
+            "data-angle",
+            parseFloat(event.target.dataset.angle) || 0
+        );
+
+        target.style.transform = "translate(" + x + "px, " + y + "px)";
+        target.style.transform = "translate(" + x + y + angle + "rad)";
+
+        // update the position coordinates
+        target.setAttribute("data-x", x);
+        target.setAttribute("data-y", y);
+
+        target.getAttribute("data-y") +
+            "px) rotate(" +
+            event.target.getAttribute("data-angle") +
+            "rad" +
+            ")";
+
+        event.target.style.transform =
+            'translate(' + event.target.getAttribute('data-x') + 'px, '
+            + event.target.getAttribute('data-y') + 'px) rotate(' + event.target.getAttribute('data-angle') + 'rad' + ')';
+
+    }
+
+    // this function is used later in the resizing and gesture demos
+    // window.dragMoveListener = dragMoveListener;
+
+    //rotate
+    interact(".rotation-handle").draggable({
+        onstart: function (event) {
+            var box = event.target.parentElement;
+            var rect = box.getBoundingClientRect();
+
+            // store the center as the element has css `transform-origin: center center`
+            box.setAttribute("data-center-x", rect.left + rect.width / 2);
+            box.setAttribute("data-center-y", rect.top + rect.height / 2);
+            // get the angle of the element when the drag starts
+            box.setAttribute("data-angle", getDragAngle(event));
+        },
+        onmove: function (event) {
+            var box = event.target.parentElement;
+
+            var pos = {
+                x: parseFloat(box.getAttribute("data-x")) || 0,
+                y: parseFloat(box.getAttribute("data-y")) || 0,
+            };
+
+            var angle = getDragAngle(event);
+
+            // update transform style on dragmove
+            box.style.transform =
+                "translate(" +
+                pos.x +
+                "px, " +
+                pos.y +
                 "px) rotate(" +
-                event.target.getAttribute("data-angle") +
+                angle +
                 "rad" +
                 ")";
-
-            event.target.style.transform =
-                'translate(' + event.target.getAttribute('data-x') + 'px, '
-                + event.target.getAttribute('data-y') + 'px) rotate(' + event.target.getAttribute('data-angle') + 'rad' + ')';
-
-        }
-
-        // this function is used later in the resizing and gesture demos
-        // window.dragMoveListener = dragMoveListener;
-
-        //rotate
-        interact(".rotation-handle").draggable({
-            onstart: function (event) {
-                var box = event.target.parentElement;
-                var rect = box.getBoundingClientRect();
-
-                // store the center as the element has css `transform-origin: center center`
-                box.setAttribute("data-center-x", rect.left + rect.width / 2);
-                box.setAttribute("data-center-y", rect.top + rect.height / 2);
-                // get the angle of the element when the drag starts
-                box.setAttribute("data-angle", getDragAngle(event));
-            },
-            onmove: function (event) {
-                var box = event.target.parentElement;
-
-                var pos = {
-                    x: parseFloat(box.getAttribute("data-x")) || 0,
-                    y: parseFloat(box.getAttribute("data-y")) || 0,
-                };
-
-                var angle = getDragAngle(event);
-
-                // update transform style on dragmove
-                box.style.transform =
-                    "translate(" +
-                    pos.x +
-                    "px, " +
-                    pos.y +
-                    "px) rotate(" +
-                    angle +
-                    "rad" +
-                    ")";
-            },
-            onend: function (event) {
-                var box = event.target.parentElement;
-
-                // save the angle on dragend
-                box.setAttribute("data-angle", getDragAngle(event));
-            },
-        });
-
-        function getDragAngle(event) {
+        },
+        onend: function (event) {
             var box = event.target.parentElement;
-            var startAngle = parseFloat(box.getAttribute("data-angle")) || 0;
-            var center = {
-                x: parseFloat(box.getAttribute("data-center-x")) || 0,
-                y: parseFloat(box.getAttribute("data-center-y")) || 0,
-            };
-            var angle = Math.atan2(center.y - event.clientY, center.x - event.clientX);
 
-            return angle - startAngle;
+            // save the angle on dragend
+            box.setAttribute("data-angle", getDragAngle(event));
+        },
+    });
+
+    function getDragAngle(event) {
+        var box = event.target.parentElement;
+        var startAngle = parseFloat(box.getAttribute("data-angle")) || 0;
+        var center = {
+            x: parseFloat(box.getAttribute("data-center-x")) || 0,
+            y: parseFloat(box.getAttribute("data-center-y")) || 0,
+        };
+        var angle = Math.atan2(center.y - event.clientY, center.x - event.clientX);
+
+        return angle - startAngle;
 
 
-        }
     }
 }
+
