@@ -24,32 +24,14 @@ function deleteImg() {
     bg.style.backgroundImage = "none";
 }
 
-//Show side navigation (clothes)
-function openNav() {
-    //Set width to scrollableDiv-element
-    document.getElementById("mySidebar").style.width = "10%";
-    //  document.getElementById("openNav").style.display = "none";
-}
-//Close side navigation (clothes) with button
-function closeNav() {
-    // document.getElementById("openNav").style.display = "inline";
-    document.getElementById("mySidebar").style.width = "0";
-}
-
-
-//---------Closes side navigation with clicking outside of it
-document.onclick = function (e) {
-    console.log("Outside click");
-    if (e.target.id !== "mySidebar") {
-        if (e.target.offsetParent && e.target.offsetParent.id !== "mySidebar")
-            closeNav();
-        createAlertPopup();
-    }
-};
-
 //---------------------------add clothes from sidemenu buttons-------------------------
 function addClothes(id) {
-    if (id == "lila") {
+    console.log("Lähetetään id: " + id);
+    console.log("Katsotaan polku: "+document.getElementById(id).src);
+    var imgPath = document.getElementById(id).src;
+    createDivs(imgPath);
+    //Water elements
+   /* if (id == "ainikki-blue") {
         var i = new Image();
         var Imgdiv = document.getElementById("img");
         var mamaDiv = document.createElement("div");
@@ -65,13 +47,13 @@ function addClothes(id) {
             Imgdiv.appendChild(mamaDiv);
             rotateDiv.setAttribute("class", "rotation-handle");
         };
-        i.src = "clothes/sininen_poncho.png";
+        i.src = "clothes/Water/Ainikki-blue.png";
         // i.setAttribute("class", "resizeme");
 
         //   deleteBtn.setAttribute("onclick","deleteC;");
         mamaDiv.setAttribute("class", "dragme");
 
-    } else if (id == "ainikki_turko") {
+    } else if (id == "mother-sea-black") {
         var i = new Image();
         var Imgdiv = document.getElementById("img");
         var mamaDiv = document.createElement("div");
@@ -85,14 +67,14 @@ function addClothes(id) {
             Imgdiv.appendChild(mamaDiv);
             rotateDiv.setAttribute("class", "rotation-handle");
         };
-        i.src = "clothes/Ainikki-blue.png";
+        i.src = "clothes/Water/aitimeri,musta.png";
         // i.setAttribute("class", "resizeme");
         deleteBtn.setAttribute("id", "deleteCBtn");
         deleteBtn.innerText = "X";
         // deleteBtn.setAttribute("onclick","deleteC;");
         mamaDiv.setAttribute("class", "dragme");
 
-    } else if (id == "aitimeri") {
+    } else if (id == "ear-blue") {
         var i = new Image();
         var Imgdiv = document.getElementById("img");
         var mamaDiv = document.createElement("div");
@@ -106,14 +88,14 @@ function addClothes(id) {
             Imgdiv.appendChild(mamaDiv);
             rotateDiv.setAttribute("class", "rotation-handle");
         };
-        i.src = "clothes/aitimeri,musta.png";
+        i.src = "clothes/Water/korvis_sininen.png";
         // i.setAttribute("class", "resizeme");
         deleteBtn.setAttribute("id", "deleteCBtn");
         deleteBtn.innerText = "X";
         // deleteBtn.setAttribute("onclick","deleteC;");
         mamaDiv.setAttribute("class", "dragme");
 
-    } else if (id == "sinikorvis") {
+    } else if (id == "poncho-blue") {
         var i = new Image();
         var Imgdiv = document.getElementById("img");
         var mamaDiv = document.createElement("div");
@@ -127,23 +109,138 @@ function addClothes(id) {
             Imgdiv.appendChild(mamaDiv);
             rotateDiv.setAttribute("class", "rotation-handle");
         };
-        i.src = "clothes/korvis_sininen.png";
+        i.src = "clothes/Water/sininen_poncho.png";
         // i.setAttribute("class", "resizeme");
         deleteBtn.setAttribute("id", "deleteCBtn");
         deleteBtn.innerText = "X";
         // deleteBtn.setAttribute("onclick","deleteC;");
         mamaDiv.setAttribute("class", "dragme");
+
+
+    } else if (id == "sea-goddess-blue") {
+        var i = new Image();
+        var Imgdiv = document.getElementById("img");
+        var mamaDiv = document.createElement("div");
+        var rotateDiv = document.createElement("div");
+        var deleteBtn = document.createElement("button");
+
+        i.onload = function () {
+            mamaDiv.appendChild(i);
+            mamaDiv.appendChild(rotateDiv);
+            mamaDiv.appendChild(deleteBtn);
+            Imgdiv.appendChild(mamaDiv);
+            rotateDiv.setAttribute("class", "rotation-handle");
+        };
+        i.src = "clothes/Water/turkoosi_sea_goddess_mekko.png";
+        // i.setAttribute("class", "resizeme");
+        deleteBtn.setAttribute("id", "deleteCBtn");
+        deleteBtn.innerText = "X";
+        // deleteBtn.setAttribute("onclick","deleteC;");
+        mamaDiv.setAttribute("class", "dragme");
+
+        //Fire elements start 
+    } else if (id == "mother-sea-red") {
+        var i = new Image();
+        var Imgdiv = document.getElementById("img");
+        var mamaDiv = document.createElement("div");
+        var rotateDiv = document.createElement("div");
+        var deleteBtn = document.createElement("button");
+
+        i.onload = function () {
+            deleteBtn.setAttribute("id", "deleteCBtn");
+            deleteBtn.innerText = "X";
+            mamaDiv.appendChild(i);
+            mamaDiv.appendChild(rotateDiv);
+            mamaDiv.appendChild(deleteBtn);
+            Imgdiv.appendChild(mamaDiv);
+            rotateDiv.setAttribute("class", "rotation-handle");
+        };
+        i.src = "clothes/Fire/aiti_meri_punainen.png";
+        // i.setAttribute("class", "resizeme");
+
+        //   deleteBtn.setAttribute("onclick","deleteC;");
+        mamaDiv.setAttribute("class", "dragme");
+
+    } else if (id == "heimo-orange") {
+        var i = new Image();
+        var Imgdiv = document.getElementById("img");
+        var mamaDiv = document.createElement("div");
+        var rotateDiv = document.createElement("div");
+        var deleteBtn = document.createElement("button");
+
+        i.onload = function () {
+            deleteBtn.setAttribute("id", "deleteCBtn");
+            deleteBtn.innerText = "X";
+            mamaDiv.appendChild(i);
+            mamaDiv.appendChild(rotateDiv);
+            mamaDiv.appendChild(deleteBtn);
+            Imgdiv.appendChild(mamaDiv);
+            rotateDiv.setAttribute("class", "rotation-handle");
+        };
+        i.src = "clothes/Fire/heimo_auringonnousu_oranssi.png";
+        // i.setAttribute("class", "resizeme");
+
+        //   deleteBtn.setAttribute("onclick","deleteC;");
+        mamaDiv.setAttribute("class", "dragme");
+
+    } else if (id == "nordic-red") {
+        var i = new Image();
+        var Imgdiv = document.getElementById("img");
+        var mamaDiv = document.createElement("div");
+        var rotateDiv = document.createElement("div");
+        var deleteBtn = document.createElement("button");
+
+        i.onload = function () {
+            deleteBtn.setAttribute("id", "deleteCBtn");
+            deleteBtn.innerText = "X";
+            mamaDiv.appendChild(i);
+            mamaDiv.appendChild(rotateDiv);
+            mamaDiv.appendChild(deleteBtn);
+            Imgdiv.appendChild(mamaDiv);
+            rotateDiv.setAttribute("class", "rotation-handle");
+        };
+        i.src = "clothes/Fire/pohjolan_amatsooni_mekko_pun.png";
+        // i.setAttribute("class", "resizeme");
+
+        //   deleteBtn.setAttribute("onclick","deleteC;");
+        mamaDiv.setAttribute("class", "dragme");
+
+    } else if (id == "nordic-light-red") {
+        var i = new Image();
+        var Imgdiv = document.getElementById("img");
+        var mamaDiv = document.createElement("div");
+        var rotateDiv = document.createElement("div");
+        var deleteBtn = document.createElement("button");
+
+        i.onload = function () {
+            deleteBtn.setAttribute("id", "deleteCBtn");
+            deleteBtn.innerText = "X";
+            mamaDiv.appendChild(i);
+            mamaDiv.appendChild(rotateDiv);
+            mamaDiv.appendChild(deleteBtn);
+            Imgdiv.appendChild(mamaDiv);
+            rotateDiv.setAttribute("class", "rotation-handle");
+        };
+        i.src = "clothes/Fire/pohjolan_valo_punainen.png";
+        // i.setAttribute("class", "resizeme");
+
+        //   deleteBtn.setAttribute("onclick","deleteC;");
+        mamaDiv.setAttribute("class", "dragme");
+
     } else {
         console.log("-----> Choose what you wanna wear <------");
-    }
+    }*/
 
-    //Draggable code
+
+    //Draggable code start here
     //every draggable item has dragme-class
+    //rotation class is rotation-handle
     interact(".dragme")
         .resizable({
             // resize from all edges and corners
             allowFrom: ".dragme",
             edges: { left: true, right: true, bottom: true, top: true },
+
             modifiers: [
                 // keep the edges inside the parent
                 interact.modifiers.restrictEdges({
@@ -152,7 +249,7 @@ function addClothes(id) {
                 }),
                 interact.modifiers.restrictSize({
                     min: { width: 50, height: 50 },
-                    max: { width: 300, height: 300 },
+                    max: { width: 400, height: 400 },
                 }),
                 interact.modifiers.restrict({
                     restriction: "parent",
@@ -164,20 +261,23 @@ function addClothes(id) {
             ],
             listeners: {
                 start(event) {
-                    console.log("resizetaan....");
+                    console.log("resizetaan...." + " Seuraavaksi edges ");
                     if (
                         event._interaction.downEvent.path[0].classList.contains(
                             "rotation-handle"
                         )
                     ) {
+
                         const element = event.target;
                         const rect = element.getBoundingClientRect();
 
                         // store the center as the element has css `transform-origin: center center`
                         element.dataset.centerX = rect.left + rect.width / 2;
                         element.dataset.centerY = rect.top + rect.height / 2;
+
                         // get the angle of the element when the drag starts
                         element.dataset.angle = getDragAngle(event);
+
                     }
                 },
                 move(event) {
@@ -198,7 +298,8 @@ function addClothes(id) {
                         // update the element's style
                         event.target.style.width = event.rect.width + "px";
                         event.target.style.height = event.rect.height + "px";
-
+                        console.log("HELLDFKDFLSDLF----WIDTH------" + event.target.style.width);
+                        console.log("HELLDFKDFLSDLF----------HEIGHT----" + event.target.style.height);
                         // translate when resizing from top or left edges
                         x += event.deltaRect.left;
                         y += event.deltaRect.top;
@@ -263,7 +364,7 @@ function addClothes(id) {
             interact.modifiers.restrict({
                 restriction: "parent",
                 endOnly: true,
-                elementRect: { left: 0, right: 0, top: 1, bottom: 1 },
+                elementRect: { left: 10, right: 0, top: 1, bottom: 1 },
 
             }),
         ],
@@ -330,6 +431,7 @@ function addClothes(id) {
     });
 
     function dragMoveListener(event) {
+        console.log("----------dragMoveListener activoitu");
         var target = event.target;
 
         // Bring element in front of its siblings
@@ -354,12 +456,15 @@ function addClothes(id) {
             "rad" +
             ")";
 
+
+
+
         event.target.style.transform =
             'translate(' + event.target.getAttribute('data-x') + 'px, '
             + event.target.getAttribute('data-y') + 'px) rotate(' + event.target.getAttribute('data-angle') + 'rad' + ')';
-        var t = event.target;
 
-        // Bring element in front of its siblings
+        // Bring to front dragged element
+        var t = event.target;
         t.parentNode.appendChild(target);
 
     }
@@ -405,10 +510,13 @@ function addClothes(id) {
 
             // save the angle on dragend
             box.setAttribute("data-angle", getDragAngle(event));
+            //    console.log("kuha katteelen ymparilleni......................");
         },
     });
 
     function getDragAngle(event) {
+        console.log("getDragAngle activoitu>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+
         var box = event.target.parentElement;
         var startAngle = parseFloat(box.getAttribute("data-angle")) || 0;
         var center = {
@@ -421,5 +529,27 @@ function addClothes(id) {
 
 
     }
+}
+
+//createDivs-function create img and divs to selected item
+function createDivs(imgPath) {
+    var i = new Image();
+    var Imgdiv = document.getElementById("img");
+    var mamaDiv = document.createElement("div");
+    var rotateDiv = document.createElement("div");
+    var deleteBtn = document.createElement("button");
+
+    i.onload = function () {
+        deleteBtn.setAttribute("id", "deleteCBtn");
+        deleteBtn.innerText = "X";
+        mamaDiv.appendChild(i);
+        mamaDiv.appendChild(rotateDiv);
+        mamaDiv.appendChild(deleteBtn);
+        Imgdiv.appendChild(mamaDiv);
+        rotateDiv.setAttribute("class", "rotation-handle");
+    };
+    i.src = imgPath;
+    mamaDiv.setAttribute("class", "dragme");
+
 }
 

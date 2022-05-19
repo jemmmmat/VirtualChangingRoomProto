@@ -15,6 +15,7 @@
         href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
     <script src="js/animation.js"></script>
+    <script src="js/elements.js"></script>
     <script src="js/app.js"></script>
     <script src="js/mobile.js"></script>
     <script src="js/alerts.js"></script>
@@ -97,16 +98,6 @@
             });
         }
     </script>
-
-    <!--Button for help popup-->
-    <!--    <button id="popupButton" class="buttons" onclick="openPopUp()"><span
-            class="material-symbols-outlined">help</span></button>
--->
-    <!--Button for rating form popup
-    <button id="popupButton" class="buttons" onclick="openForm()"><span class="material-symbols-outlined">
-            rate_review
-        </span></button>-->
-
     <script>
         function SubForm() {
             cosole.log("Viesti: " + document.getElementById("message"));
@@ -126,7 +117,7 @@
                 });
             </script>
 
-        
+
         </div>
     </div>
 
@@ -163,24 +154,81 @@
     <div class="scrollableDiv" id="mySidebar">
         <div id="scrollableDivTitle"><label class="infoText"></label><button id="closeNav" class="closeNav"
                 onclick="closeNav()" style="position: sticky;">&times;</button></div>
-        <ul class="imgList"> <img src="icons/pieni_sininen.PNG" id="lila" onclick="addClothes(this.id)"> </ul>
-        <ul class="imgList"> <img src="icons/Ainikki pelleriini -mermaid,turkoosi_icon.PNG" id="ainikki_turko"
-                onclick="addClothes(this.id)">
-        </ul>
-        <ul class="imgList"> <img src="icons/aitimeri,musta.png" id="aitimeri" onclick="addClothes(this.id)"> </ul>
-        <ul class="imgList"> <img src="clothes/korvis_sininen.png" id="sinikorvis" onclick="addClothes(this.id)"> </ul>
-        <ul class="imgList"> <img src="icons/pieni_punainen_tupsuponcho.PNG"> </ul>
-        <ul class="imgList"> <img src="icons/pieni_punainen_tupsuponcho.PNG"> </ul>
-        <ul class="imgList"> <img src="icons/pieni_punainen_tupsuponcho.PNG"> </ul>
-        <ul class="imgList"> <img src="icons/pieni_punainen_tupsuponcho.PNG"> </ul>
-        <ul class="imgList"> <img src="icons/pieni_punainen_tupsuponcho.PNG"> </ul>
-        <ul class="imgList"> <img src="icons/pieni_punainen_tupsuponcho.PNG"> </ul>
+        <button id="goBack" onclick="goBack()">Back</button>
+
+        <button class="elements" onclick="openWaterE()">Water</button>
+        <div class="wdiv" id="wdiv">
+            <ul class="imgList"> <img src="clothes/Water/Ainikki-blue.png" id="ainikki-blue"
+                    onclick="addClothes(this.id)"> </ul>
+            <ul class="imgList"> <img src="clothes/Water/aitimeri,musta.png" id="mother-sea-black"
+                    onclick="addClothes(this.id)">
+            </ul>
+            <ul class="imgList"> <img src="clothes/Water/korvis_sininen.png" id="ear-blue"
+                    onclick="addClothes(this.id)"> </ul>
+            <ul class="imgList"> <img src="clothes/Water/sininen_poncho.png" id="poncho-blue"
+                    onclick="addClothes(this.id)"> </ul>
+            <ul class="imgList"> <img src="clothes/Water/turkoosi_sea_goddess_mekko.png" id="sea-goddess-blue"
+                    onclick="addClothes(this.id)"> </ul>
+        </div>
+
+        <button class="elements" onclick="openFireE()">Fire</button>
+        <div class="fdiv" id="fdiv">
+            <ul class="imgList"> <img src="clothes/Fire/aiti_meri_punainen.png" id="mother-sea-red"
+                    onclick="addClothes(this.id)"> </ul>
+            <ul class="imgList"> <img src="clothes/Fire/heimo_auringonnousu_oranssi.png" id="heimo-orange"
+                    onclick="addClothes(this.id)"> </ul>
+            <ul class="imgList"> <img src="clothes/Fire/pohjolan_amatsooni_mekko_pun.png" id="nordic-red"
+                    onclick="addClothes(this.id)"> </ul>
+            <ul class="imgList"> <img src="clothes/Fire/pohjolan_valo_punainen.png" id="nordic-light-red"
+                    onclick="addClothes(this.id)"> </ul>
+        </div>
+
+        <!-- Näitä ei vielä lisätty itse functioina app.js-->
+        <button class="elements" onclick="openWoodE()">Wood</button>
+        <div class="wooddiv" id="wooddiv">
+            <ul class="imgList"> <img src="clothes/Wood/lehti_korvis.png" id="leaf_green" onclick="addClothes(this.id)">
+            </ul>
+            <ul class="imgList"> <img src="clothes/Wood/lähde_korvakoru.png" id="source-green"
+                    onclick="addClothes(this.id)"> </ul>
+            <ul class="imgList"> <img src="clothes/Wood/nordic_light_green.png" id="nordic-light-green"
+                    onclick="addClothes(this.id)"> </ul>
+            <ul class="imgList"> <img src="clothes/Wood/sea_goddess_garland_sunny.png" id="sea-goddess-sunny"
+                    onclick="addClothes(this.id)"> </ul>
+        </div>
+
+        <button class="elements" onclick="openMetalE()">Metal</button>
+        <div class="mdiv" id="mdiv">
+            <ul class="imgList"> <img src="clothes/Metal/alku_kult.png" id="alku-gold" onclick="addClothes(this.id)">
+            </ul>
+            <ul class="imgList"> <img src="clothes/Metal/lahde_kult.png" id="source-gold" onclick="addClothes(this.id)">
+            </ul>
+            <ul class="imgList"> <img src="clothes/Metal/lehti_hop.png" id="leaf-silver" onclick="addClothes(this.id)">
+            </ul>
+            <ul class="imgList"> <img src="clothes/Metal/lehti_kult.png" id="leaf-gold" onclick="addClothes(this.id)">
+            </ul>
+        </div>
+
+        <button class="elements" onclick="openEarthE()">Earth</button>
+        <div class="ediv" id="ediv">
+            <ul class="imgList"> <img src="clothes/Earth/heimo_korvakorut_puunhenki.png" id="heimo-ear-puuhenki"
+                    onclick="addClothes(this.id)"> </ul>
+            <ul class="imgList"> <img src="clothes/Earth/keltainen_poncho.png" id="poncho-yellow"
+                    onclick="addClothes(this.id)"> </ul>
+            <ul class="imgList"> <img src="clothes/Earth/lahde_pronssi.png" id="source-bronze"
+                    onclick="addClothes(this.id)"> </ul>
+            <ul class="imgList"> <img src="clothes/Earth/life_sun.jpg.png" id="life-ear-sun"
+                    onclick="addClothes(this.id)"> </ul>
+            <ul class="imgList"> <img src="clothes/Earth/nodic_star-yellow.png" id="nordic-star-yellow"
+                    onclick="addClothes(this.id)"> </ul>
+            <ul class="imgList"> <img src="clothes/Earth/sea_goddess_garland_sunny.png" id="sea-goddess-garland-sunny"
+                    onclick="addClothes(this.id)"> </ul>
+        </div>
     </div>
 
     <div class="popup" id="popup">
         <button id="close" onclick="closePopUp()">&times;</button>
-        <h2>Tervetuloa käyttämään virtuaalista sovituskoppia!</h2>
-        <p>Alla olevasta videosta näet ohjeet käyttöön: </p>
+        <h2>Welcome to use virtual changing room!</h2>
+        <p>Watch introduction video: </p>
         <iframe width="460" height="216" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
