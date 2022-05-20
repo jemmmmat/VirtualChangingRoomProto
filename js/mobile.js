@@ -1,6 +1,6 @@
 var angle = 0
 
-interact('#rotate-handle').gesturable({
+interact('#rotation-handle').gesturable({
   listeners: {
     move (event) {
       var arrow = document.getElementById('arrow')

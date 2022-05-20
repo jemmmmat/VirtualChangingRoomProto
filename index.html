@@ -9,11 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <link rel="stylesheet"
-        href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="js/animation.js"></script>
     <script src="js/elements.js"></script>
     <script src="js/app.js"></script>
@@ -21,10 +17,14 @@
     <script src="js/alerts.js"></script>
     <script src="https://unpkg.com/interactjs@1.10.11/dist/interact.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js">
+    </script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
 </head>
 
 <body>
+
     <script>
         /*   $(document).ready(function () {
                var windowType;
@@ -124,29 +124,31 @@
     <div class="right">
         <!-- here is imagebuttons-->
         <button class="buttons" id="fileBtn">
-            <label for="files" class="custom-file"> <svg xmlns="http://www.w3.org/2000/svg" width="135" height="114"
-                    viewBox="0 0 135 114">
-                    <path id="file-circle-plus-solid_p"
-                        d="M0,14.251C0,6.378,6.716,0,15,0H52.5V28.5A7.313,7.313,0,0,0,60,35.626H90V44.22C72.681,48.873,60,63.99,60,81.939c-.059,12.566,6.354,24.41,17.275,31.906A18.8,18.8,0,0,1,75,114H15c-8.284,0-15-6.39-15-14.251ZM60,28.5V0L90,28.5Zm7.5,53.439c0-17.7,15.119-32.064,33.75-32.064S135,64.235,135,81.939,119.881,114,101.25,114,67.5,99.639,67.5,81.939ZM105,67.488a3.755,3.755,0,0,0-7.5,0V78.166H86.25a3.81,3.81,0,0,0-3.75,3.561,3.546,3.546,0,0,0,3.75,3.564H97.5V95.971a3.755,3.755,0,0,0,7.5,0V85.292h11.25A3.546,3.546,0,0,0,120,81.728a3.81,3.81,0,0,0-3.75-3.561H105Z" />
-                </svg>
+            <label for="files" class="custom-file"><span class="material-symbols-outlined">
+                    add_photo_alternate
+                </span>
             </label>
             <input id="files" type="file" name="image" id="file" onclick="choose()"></button>
 
         <!--Delete for img and clothes-->
-        <button type="button" class="buttons" id="deleteBtn" onclick="deleteImg()"><svg
-                xmlns="http://www.w3.org/2000/svg" width="114" height="114" viewBox="0 0 114 114">
-                <path id="trash-can-solid_p"
-                    d="M34.4,3.938A8.33,8.33,0,0,1,41.694,0H72.332A8.324,8.324,0,0,1,79.61,3.938l1.831,3.186H105.87c4.491,0,8.13,3.2,8.13,7.126s-3.639,7.126-8.144,7.126H8.144C3.647,21.376,0,18.184,0,14.25S3.647,7.124,8.144,7.124H32.572ZM7.917,28.5h97.94V99.75c0,7.86-7.3,14.25-16.285,14.25H24.2c-8.766,0-16.282-6.39-16.282-14.25ZM28.273,46.312V96.188c0,1.96,2.061,3.562,4.072,3.562,2.467,0,4.072-1.6,4.072-3.562V46.312c0-1.96-1.6-3.562-4.072-3.562-2.013,0-4.074,1.6-4.074,3.562Zm24.428,0V96.188c0,1.96,2.061,3.562,4.072,3.562a4.815,4.815,0,0,0,3.072-1.042,3.181,3.181,0,0,0,1.23-2.52V46.312a3.181,3.181,0,0,0-1.23-2.52,4.815,4.815,0,0,0-3.072-1.042c-2.013,0-4.074,1.6-4.074,3.562Zm24.658,0V96.188a4.107,4.107,0,0,0,8.141,0V46.312a4.108,4.108,0,0,0-8.144,0Z" />
-            </svg>
+        <button type="button" class="buttons" id="deleteBtn" onclick="deleteImg()"><span
+                class="material-symbols-outlined">
+                delete
+            </span>
         </button>
 
-        <button id="openNav" class="buttons" onclick="openNav()"><svg xmlns="http://www.w3.org/2000/svg" width="135"
-                height="114" viewBox="0 0 135 114">
-                <path id="shirt-solid_p"
-                    d="M135,33.741a7.588,7.588,0,0,1-1.478,4.528l-10.54,14.165a6.568,6.568,0,0,1-5.275,2.722,6.431,6.431,0,0,1-4.212-1.59L101.246,43.049v59.918c0,6.1-4.534,11.033-10.125,11.033H43.872c-5.591,0-10.125-4.941-10.125-11.033V43.049L21.322,53.574a5.541,5.541,0,0,1-4.031,1.38,6.578,6.578,0,0,1-5.278-2.722L1.476,38.269A7.588,7.588,0,0,1,0,33.741a7.459,7.459,0,0,1,2.534-5.674l28.475-24.5A14.514,14.514,0,0,1,40.31,0h7.278C49.212,10.425,57.481,18.387,67.5,18.387S85.79,10.425,87.406,0h7.087a14.534,14.534,0,0,1,9.49,3.579l28.478,24.5A7.454,7.454,0,0,1,135,33.741Z"
-                    transform="translate(0.003)" />
-            </svg>
+        <button type="button" class="buttons" id="openNav" onclick="openNav()">
+            <span class="material-symbols-outlined">
+                checkroom
+            </span>
         </button>
+
+        <button id="screenS" class="buttons" onclick="takeshot()"><span class="material-symbols-outlined">
+                screenshot
+            </span>
+        </button>
+
+
     </div>
     </div>
 

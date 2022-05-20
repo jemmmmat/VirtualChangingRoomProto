@@ -2,21 +2,23 @@
 //openNav shows side menu (clothes)
 function openNav() {
     document.getElementById("mySidebar").style.width = "10%";
+    console.log("open menu");
 }
+
 //closeNav closes side menu (clothes) with button
 function closeNav() {
-    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("mySidebar").style.width = "0%";
+    console.log("sulje menu");
 }
 
 
 //Closes side menu with clicking outside of it
-document.onclick = function (e) {
-    if (e.target.id !== "mySidebar") {
-        if (e.target.offsetParent && e.target.offsetParent.id !== "mySidebar")
-            closeNav();
-        createAlertPopup();
+document.addEventListener('mouseup', function (e) {
+    var container = document.getElementById('mySidebar');
+    if (!container.contains(e.target)) {
+        closeNav();
     }
-};
+}.bind(this));
 
 
 function goBack() {
@@ -74,7 +76,8 @@ function openWoodE() {
 
 function openMetalE() {
     var elems = document.getElementsByClassName('elements');
-    for (var i = 0; i < elems.length; i += 1) {
+    for (var i = 
+        0; i < elems.length; i += 1) {
         elems[i].style.display = 'none';
     }
     document.getElementById("wdiv").style.display = "none";
