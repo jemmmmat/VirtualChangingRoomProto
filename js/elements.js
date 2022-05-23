@@ -1,7 +1,7 @@
 
 //openNav shows side menu (clothes)
 function openNav() {
-    document.getElementById("mySidebar").style.width = "10%";
+    document.getElementById("mySidebar").style.width = "20%";
     console.log("open menu");
 }
 

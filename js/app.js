@@ -49,10 +49,13 @@ function deleteImg() {
 }
 //---------------------------add clothes from sidemenu buttons-------------------------
 function addClothes(id) {
+    
     console.log("Lähetetään id: " + id);
     console.log("Katsotaan polku: " + document.getElementById(id).src);
     var imgPath = document.getElementById(id).src;
     createDivs(imgPath);
+
+   
     //Water elements
     /* if (id == "ainikki-blue") {
          var i = new Image();
@@ -566,15 +569,15 @@ function createDivs(imgPath) {
 
     i.onload = function () {
         deleteBtn.setAttribute("id", "deleteCBtn");
-        deleteBtn.innerText = "X";
         mamaDiv.appendChild(i);
         mamaDiv.appendChild(rotateDiv);
         mamaDiv.appendChild(deleteBtn);
         Imgdiv.appendChild(mamaDiv);
         rotateDiv.setAttribute("class", "rotation-handle");
-    };
+        rotateDiv.innerHTML ='<span class="material-symbols-outlined">rotate_right</span>'
+        deleteBtn.innerHTML= '<span class="material-symbols-outlined">close</span>';
+    };  
     i.src = imgPath;
     mamaDiv.setAttribute("class", "dragme");
 
 }
-

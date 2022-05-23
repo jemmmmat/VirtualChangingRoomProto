@@ -12,6 +12,14 @@ body {
   box-sizing: border-box;
 }
 
+h1 {
+  font-family: 'Open Sans', sans-serif;
+}
+h2 {
+  font-family: 'Open Sans', sans-serif;
+  font-style: italic;
+}
+  
 .title {
   text-align: center;
 }
@@ -44,9 +52,7 @@ body {
   /* z-index: 1;*/
 }
 
-#img img {
-
-}
+#img img {}
 
 /*draggable and resizable images class*/
 .dragme {
@@ -76,16 +82,13 @@ body {
 
 /* this is div for rotate images*/
 .rotation-handle {
-  height: 20px;
-  width: 20px;
   padding: 3px 4px;
+  position:fixed;
+  top:0;
+  left:0;
   border-radius: 50%;
-  left: 50%;
-  right: 50%;
-  bottom: -35px;
-  border: 1px solid rgba(128, 128, 128, 0.372);
-  background-color: rgba(128, 128, 128, 0.384);
- /* background-size: 100% 100%;*/
+
+  /* background-size: 100% 100%;*/
   transform-origin: center center;
   cursor: move;
   /*These are important for touch actions*/
@@ -93,16 +96,26 @@ body {
   user-select: none;
 
 }
+.rotation-handle:hover {
+  border: rgba(255, 0, 0, 0.279);
+  background-color: rgba(255, 0, 0, 0.217);
+
+}
 
 #deleteCBtn {
-  height: 10px;
-  width: 10px;
   padding: 3px 4px;
-  border-radius: 1px;
-  top: 0px;
+  position:fixed;
+  top:0;
+  right:0;
+  border-radius: 50%;
   border: transparent;
   background-color: transparent;
   cursor: pointer;
+
+}
+#deleteCBtn:hover {
+  border: rgba(255, 0, 0, 0.279);
+  background-color: rgba(255, 0, 0, 0.217);
 
 }
 
@@ -149,11 +162,12 @@ img {
 .scrollableDiv {
   height: 97%;
   width: 0%;
-  position: relative;
+  position:absolute;
   z-index: 1;
   top: 5;
   float: right;
-  background-color: rgba(128, 128, 128, 0.123);
+  background-color: rgba(128, 128, 128, 0.205);
+  backdrop-filter: blur(3px);
   overflow-x: hidden;
   transition: 0.5s;
 }
@@ -235,6 +249,7 @@ img {
     margin: 0 auto 5px;
     display: inline-block;
   }
+
 
   .main,
   #img {
@@ -335,15 +350,16 @@ input[type="file"] {
 }
 
 .elements {
- padding: 1px;
- border-color: transparent;
- margin: 0 auto 5px;
- display: inline-block;
+  padding: 1px;
+  border-color: transparent;
+  margin: 0 auto 5px;
+  display: inline-block;
 }
 
 .elements button {
-justify-items: center;
+  justify-items: center;
 }
+
 .elements:active {
   border: 1px solid rgba(128, 128, 128, 0.559);
 }
@@ -356,6 +372,7 @@ justify-items: center;
 #wdiv {
   display: none;
 }
+
 #fdiv {
   display: none;
 }
@@ -363,13 +380,22 @@ justify-items: center;
 #wooddiv {
   display: none;
 }
+
 #ediv {
   display: none;
 }
+
 #mdiv {
   display: none;
 }
+
 #addImg {
   height: 50px;
   width: 50px;
+}
+
+#screenS {
+  font-size: 10px;
+  color: rgb(58, 58, 58);
+  bottom: 6px;
 }
