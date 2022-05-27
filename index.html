@@ -1,3 +1,4 @@
+<!DOCTYPE html5>
 <html>
 
 <head>
@@ -29,11 +30,11 @@
     </script>
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 </head>
 
 <body>
- 
+
 
     <!--
     <h1>Tailor Fit</h1>
@@ -86,7 +87,7 @@
     </script>
 
     <script>
-        var head = document.getElementsByTagName('head')[0];
+       /* var head = document.getElementsByTagName('head')[0];
         var js = document.createElement("script");
 
         js.type = "text/javascript";
@@ -97,7 +98,7 @@
         else {
             js.src = "app.js";
         }
-        head.appendChild(js);
+        head.appendChild(js);*/
     </script>
 
     <script>
@@ -119,9 +120,9 @@
 
     <div class="main">
         <div id="img">
-            <script>$(function () {
+            <script>/*$(function () {
                     $("img.dragme").imageScale();
-                });</script>
+                });*/</script>
             <script>
                 //remove selected draggable element
                 $(document).on('click', '#deleteCBtn', function () {
@@ -158,7 +159,14 @@
 
         <button id="screenS" class="buttons" onclick="takeshot()">Screenshot
         </button>
+        <div id="small_buttons">
+            <button type="button" class="buttons" id="question" onclick="question()">
+                <span class="material-symbols-outlined testi">
+                    question_mark
+                </span>
+            </button>
 
+        </div>
 
     </div>
 

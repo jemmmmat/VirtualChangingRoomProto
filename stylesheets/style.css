@@ -13,23 +13,25 @@ body {
 }
 
 h1 {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 h2 {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-style: italic;
 }
-  
+
 .title {
   text-align: center;
 }
 
+/*main -div have #img div inside of it*/
 .main {
   float: left;
   width: 80%;
   height: 100%;
 }
 
+/*Div->Button menu on right side of the page*/
 .right {
   display: inline-block;
   align-items: center;
@@ -39,6 +41,7 @@ h2 {
   border-color: transparent;
 }
 
+/*div where draggable divs are created*/
 #img {
   position: absolute;
   height: 97%;
@@ -52,8 +55,6 @@ h2 {
   /* z-index: 1;*/
 }
 
-#img img {}
-
 /*draggable and resizable images class*/
 .dragme {
   border-radius: 2px;
@@ -61,20 +62,19 @@ h2 {
   margin: 3px;
   height: 200px;
   width: 200px;
-  /* background-size: 100% 100%; Not working*/
   position: absolute;
   display: table;
-  /*These are important for touch actions*/
+  /*--These are important for touch actions--*/
   touch-action: none;
   user-select: none;
-
 }
 
-/*hover draggable images*/
+/*hover for draggable images*/
 .dragme:hover {
   border: 1px dotted rgba(128, 128, 128, 0.555);
 }
 
+/* Not sure yet do we need this one*/
 .dragme img {
   max-width: 100%;
   max-height: 100%;
@@ -83,9 +83,9 @@ h2 {
 /* this is div for rotate images*/
 .rotation-handle {
   padding: 3px 4px;
-  position:fixed;
-  top:0;
-  left:0;
+  position: fixed;
+  top: 0;
+  left: 0;
   border-radius: 50%;
 
   /* background-size: 100% 100%;*/
@@ -94,31 +94,30 @@ h2 {
   /*These are important for touch actions*/
   touch-action: none;
   user-select: none;
-
 }
 .rotation-handle:hover {
   border: rgba(255, 0, 0, 0.279);
   background-color: rgba(255, 0, 0, 0.217);
-
 }
 
+/*This is draggable divs delete button*/
 #deleteCBtn {
   padding: 3px 4px;
-  position:fixed;
-  top:0;
-  right:0;
+  position: fixed;
+  top: 0;
+  right: 0;
   border-radius: 50%;
   border: transparent;
   background-color: transparent;
   cursor: pointer;
-
 }
+
 #deleteCBtn:hover {
   border: rgba(255, 0, 0, 0.279);
   background-color: rgba(255, 0, 0, 0.217);
-
 }
 
+/* .imgList is list of images (clothes)*/
 .imgList {
   width: 100%;
   padding: 1px;
@@ -136,7 +135,7 @@ img {
   border: 0px solid transparent;
 }
 
-
+/*.buttons class is buttons in .right-div*/
 .buttons {
   border: 1.5px solid rgba(112, 112, 112, 0.192);
   background-color: rgba(209, 209, 209, 0.651);
@@ -156,13 +155,26 @@ img {
   border-color: rgba(105, 190, 119, 0.671);
 }
 
-
+/*#question-button is in .right-class div*/
+#question {
+  border: transparent;
+  background-color: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  display: block;
+  bottom: 0px;
+  z-index: 5;
+}
+/*This is just shity test-- not working*/
+.buttons.testi {
+  font-size: 10px;
+}
 
 /*------------Open and close div with clothes-------------*/
 .scrollableDiv {
   height: 97%;
   width: 0%;
-  position:absolute;
+  position: absolute;
   z-index: 1;
   top: 5;
   float: right;
@@ -184,6 +196,7 @@ img {
   cursor: pointer;
 }
 
+/*Button in top of clothes list*/
 #closeNav {
   background-color: transparent;
   border: none;
@@ -197,6 +210,7 @@ img {
   border-radius: 2px;
 }
 
+/* I think that we dont need this anymore
 #scrollableDivTitle {
   background-color: #82828298;
   color: rgb(50, 50, 50);
@@ -205,11 +219,8 @@ img {
   display: inline-block;
   width: 100%;
   height: 5%;
-}
+}*/
 
-
-
-#scrollableDivTitle label {}
 
 #scrollableDivTitle button {
   display: inline-flex;
@@ -223,8 +234,6 @@ img {
   color: rgba(116, 116, 116, 0.651);
 }
 
-
-
 /* ----------For mobile devices:------------------- */
 @media only screen and (max-width: 767px) {
   body {
@@ -236,7 +245,7 @@ img {
     margin-left: auto;
     margin-right: auto;
   }
-
+/*Button menu on right side of the page*/
   .right {
     order: 2;
     width: 100%;
@@ -249,7 +258,6 @@ img {
     margin: 0 auto 5px;
     display: inline-block;
   }
-
 
   .main,
   #img {
@@ -296,7 +304,6 @@ img {
     overflow-x: hide;
     padding: 1px;
   }
-
 }
 
 input[type="file"] {
