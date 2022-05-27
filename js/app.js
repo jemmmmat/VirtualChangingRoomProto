@@ -316,6 +316,8 @@ function addClothes(id) {
 
                     console.log("rotation");
                     if (
+                        //past version target was path[0]. Changet it to target 
+                        //--> path[0] didn't work with Firefox
                         event._interaction.downEvent.target.classList.contains(
                             "rotation-handle"
                         )
