@@ -1,4 +1,5 @@
 
+
 // Define the function 
 // to screenshot the div
 function takeshot() {
@@ -289,7 +290,7 @@ function addClothes(id) {
                 start(event) {
                     console.log("resizetaan...." + " Seuraavaksi edges ");
                     if (
-                        event._interaction.downEvent.path[0].classList.contains(
+                        event._interaction.downEvent.target.classList.contains(
                             "rotation-handle"
                         )
                     ) {
@@ -315,7 +316,7 @@ function addClothes(id) {
 
                     console.log("rotation");
                     if (
-                        event._interaction.downEvent.path[0].classList.contains(
+                        event._interaction.downEvent.target.classList.contains(
                             "rotation-handle"
                         )
                     ) {
@@ -348,7 +349,7 @@ function addClothes(id) {
                     console.log("resizetaan....lopetetaan?");
 
                     if (
-                        event._interaction.downEvent.path[0].classList.contains(
+                        event._interaction.downEvent.target.classList.contains(
                             "rotation-handle"
                         )
                     ) {
