@@ -16,8 +16,8 @@ function takeshot() {
   
             a.setAttribute('download', new Date().toISOString()+'_screenshot_virtualchangingroom.png')
             a.setAttribute('href', image)
-            a.click()
-            canvas.remove()
+            a.click();
+            canvas.remove();
         })
 }
 
@@ -275,8 +275,8 @@ function addClothes(id) {
                     restriction: "parent",
                 }),
                 interact.modifiers.restrictSize({
-                    min: { width: 50, height: 50 },
-                    max: { width: 400, height: 400 },
+                    min: { width: 20, height: 20 },
+                    max: { width: 400, height: 600 },
                 }),
                 interact.modifiers.restrict({
                     restriction: "parent",
@@ -480,12 +480,14 @@ function addClothes(id) {
         // update the position coordinates
         target.setAttribute("data-x", x);
         target.setAttribute("data-y", y);
+        target.setAttribute('data-angle', parseFloat(event.target.dataset.angle) || 0);
 
-        target.getAttribute("data-y") +
+
+       /* target.getAttribute("data-y") +
             "px) rotate(" +
             event.target.getAttribute("data-angle") +
             "rad" +
-            ")";
+            ")";*/
 
 
 

@@ -1,21 +1,41 @@
+
+
+function disable() {
+  var plop = document.createElement("div");
+  plop.innerHTML = "moi";
+  document.getElementById("img").appendChild(plop);
+
+}
+
+function enable() {
+  var plop = document.createElement("div");
+  plop.innerHTML = "sulje";
+  document.getElementById("img").appendChild(plop);
+
+
+}
 //----------------------------Help popup---------------------------------
 function openPopUp() {
+  // disable();
   document.querySelector(".popup").style.display = "block";
   document.querySelector(".main").style.filter = "blur(3px)";
-  document.querySelector(".right").styly.display = "disabled";
   document.querySelector(".right").style.filter = "blur(3px)";
   document.querySelector(".scrollableDiv").style.filter = "blur(3px)";
 
   if (event.target.id != "popup") {
     document.getElementById("popup").style.display = "none";
   }
+
 }
+
+
+
 function closePopUp() {
   document.querySelector(".popup").style.display = "none";
   document.querySelector(".main").style.filter = "none";
   document.querySelector(".right").style.filter = "none";
   document.querySelector(".scrollableDiv").style.filter = "none";
-
+  //enable();
   if (event.target.id != "popup") {
     document.getElementById("popup").style.display = "none";
   }

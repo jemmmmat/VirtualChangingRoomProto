@@ -60,10 +60,11 @@ h2 {
   border-radius: 2px;
   padding: 3px;
   margin: 3px;
-  height: 200px;
-  width: 200px;
+  height: 80px;
+  width: 80px;
   position: absolute;
   display: table;
+
   /*--These are important for touch actions--*/
   touch-action: none;
   user-select: none;
@@ -78,6 +79,13 @@ h2 {
 .dragme img {
   max-width: 100%;
   max-height: 100%;
+  /*This makes image fit(stretch) to div size*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
 }
 
 /* this is div for rotate images*/
@@ -258,7 +266,6 @@ img {
     margin: 0 auto 5px;
     display: inline-block;
   }
-
   .main,
   #img {
     order: 1;
@@ -282,6 +289,8 @@ img {
 
   .dragme {
     object-fit: scale-down;
+    height:30px;
+    width:auto;
     max-width: 100%;
     left: 10%;
   }
