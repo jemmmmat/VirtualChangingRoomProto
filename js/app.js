@@ -579,8 +579,8 @@ function createDivs(imgPath) {
         mamaDiv.appendChild(deleteBtn);
         Imgdiv.appendChild(mamaDiv);
         rotateDiv.setAttribute("class", "rotation-handle");
-        rotateDiv.innerHTML ='<span class="material-symbols-outlined">rotate_right</span>'
-        deleteBtn.innerHTML= '<span class="material-symbols-outlined">close</span>';
+        rotateDiv.innerHTML ='<span class="material-symbols-outlined drag">rotate_right</span>'
+        deleteBtn.innerHTML= '<span class="material-symbols-outlined drag">close</span>';
     };  
     i.src = imgPath;
     mamaDiv.setAttribute("class", "dragme");

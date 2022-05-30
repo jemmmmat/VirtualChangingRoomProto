@@ -69,10 +69,22 @@ h2 {
   touch-action: none;
   user-select: none;
 }
-
-/*hover for draggable images*/
 .dragme:hover {
   border: 1px dotted rgba(128, 128, 128, 0.555);
+
+}
+
+/*hover for draggable images*/
+.dragme:hover .rotation-handle, .rotation-handle:hover{
+  display: inline-block;
+  border: rgba(117, 128, 115, 0.717);
+  background-color: rgba(117, 128, 115, 0.717);
+}
+
+.dragme:hover #deleteCBtn, #deleteCBtn:hover{
+  display: inline-block;
+  border:rgba(117, 128, 115, 0.717);
+  background-color: rgba(117, 128, 115, 0.717);
 }
 
 /* Not sure yet do we need this one*/
@@ -95,6 +107,7 @@ h2 {
   top: 0;
   left: 0;
   border-radius: 50%;
+  display: none;
 
   /* background-size: 100% 100%;*/
   transform-origin: center center;
@@ -103,10 +116,11 @@ h2 {
   touch-action: none;
   user-select: none;
 }
+/*
 .rotation-handle:hover {
   border: rgba(255, 0, 0, 0.279);
   background-color: rgba(255, 0, 0, 0.217);
-}
+}*/
 
 /*This is draggable divs delete button*/
 #deleteCBtn {
@@ -118,12 +132,14 @@ h2 {
   border: transparent;
   background-color: transparent;
   cursor: pointer;
-}
+  display: none;
 
+}
+/*
 #deleteCBtn:hover {
   border: rgba(255, 0, 0, 0.279);
   background-color: rgba(255, 0, 0, 0.217);
-}
+}*/
 
 /* .imgList is list of images (clothes)*/
 .imgList {
@@ -242,6 +258,9 @@ img {
   color: rgba(116, 116, 116, 0.651);
 }
 
+.material-symbols-outlined.drag{
+  color: rgb(255, 255, 255);
+}
 /* ----------For mobile devices:------------------- */
 @media only screen and (max-width: 767px) {
   body {
