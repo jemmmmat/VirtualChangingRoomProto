@@ -302,10 +302,14 @@ img {
 }
 /* ----------For mobile devices:------------------- */
 @media only screen and (max-width: 767px) {
+  html {
+    
+  }
   body {
     height: 99%;
-  }
 
+  }
+  
   .right,
   .main {
     margin-left: auto;
@@ -339,6 +343,7 @@ img {
     cursor: pointer;
     position: relative;
     z-index: 700;
+    display: flex;
   }
 
   .buttons:hover {
@@ -471,4 +476,11 @@ input[type="file"] {
   font-size: 10px;
   color: rgb(58, 58, 58);
   bottom: 6px;
+}
+.fa-solid.fa-shirt {
+ 
+}
+svg {
+  fill: rgba(116, 116, 116, 0.651);
+
 }

@@ -83,6 +83,29 @@
                    });
        
                });*/
+            /*
+                        $(document).ready(function () {
+                            $(window)
+                                .bind('orientationchange', function () {
+                                    if (window.orientation % 180 == 0) {
+                                        $(document.body).css("-webkit-transform-origin", "")
+                                            .css("-webkit-transform", "");
+                                    }
+                                    else {
+                                        if (window.orientation > 0) { //clockwise
+                                            $(document.body).css("-webkit-transform-origin", "200px 190px")
+                                                .css("-webkit-transform", "rotate(0deg)");
+                                        }
+                                        else {
+                                            $(document.body).css("-webkit-transform-origin", "280px 190px")
+                                                .css("-webkit-transform", "rotate(0deg)");
+                                        }
+                                    }
+                                })
+                                .trigger('orientationchange');
+                        });*/
+            //Aivan kokeellinen testi Safari-selaimelle
+           
 
 
         </script>
@@ -123,12 +146,16 @@
         <div class="main">
             <div id="img">
                 <script>/*$(function () {
-                $("img.dragme").imageScale();
-                    });*/
+        $("img.dragme").imageScale();
+            });*/
                     //Block right click in img div
                     $('#img').bind('contextmenu', function (e) {
                         return false;
                     }); 
+                    
+                    document.addEventListener("contextmenu", function (e) {
+                    e.preventDefault();
+                    }, false);
                 </script>
                 <script>
                     //remove selected draggable element
