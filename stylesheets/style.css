@@ -308,10 +308,11 @@ img {
 
   .dragme {
     object-fit: scale-down;
-    height:30px;
-    width:auto;
+    height: 50px;
+    width:60px;
     max-width: 100%;
     left: 10%;
+
   }
 
   .scrollableDiv {
@@ -385,10 +386,21 @@ input[type="file"] {
 }
 
 .elements {
-  padding: 1px;
+  padding-top: 10px;
   border-color: transparent;
-  margin: 0 auto 5px;
-  display: inline-block;
+  margin: 0 auto 10px ;
+  display: block;
+  background-color: #adabab; 
+  color: white;
+  border-radius: 3px;
+  border: none;
+  padding: 15px 32px;
+  width: 166px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+
+  cursor: pointer;
 }
 
 .elements button {

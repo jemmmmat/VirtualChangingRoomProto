@@ -492,9 +492,9 @@ function addClothes(id) {
 
 
 
-        event.target.style.transform =
-            'translate(' + event.target.getAttribute('data-x') + 'px, '
-            + event.target.getAttribute('data-y') + 'px) rotate(' + event.target.getAttribute('data-angle') + 'rad' + ')';
+        target.style.transform =
+            'translate(' + target.getAttribute('data-x') + 'px, '
+            + target.getAttribute('data-y') + 'px) rotate(' + target.getAttribute('data-angle') + 'rad' + ')';
 
         // Bring to front dragged element
         var t = event.target;
