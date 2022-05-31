@@ -31,6 +31,7 @@ function goBack() {
     document.getElementById("wooddiv").style.display = "none";
     document.getElementById("mdiv").style.display = "none";
     document.getElementById("ediv").style.display = "none";
+    document.getElementById('goBack').style.display= "none";
 
 
 
@@ -48,6 +49,8 @@ function openWaterE() {
     document.getElementById("ediv").style.display = "none";
     document.getElementById("mdiv").style.display = "none";
     document.getElementById("wdiv").style.display = "block";
+    document.getElementById('goBack').style.display= "block";
+
 
 }
 
@@ -61,6 +64,8 @@ function openFireE() {
     document.getElementById("ediv").style.display = "none";
     document.getElementById("mdiv").style.display = "none";
     document.getElementById("fdiv").style.display = "block";
+    document.getElementById('goBack').style.display= "block";
+
 
 }
 function openWoodE() {
@@ -73,6 +78,8 @@ function openWoodE() {
     document.getElementById("ediv").style.display = "none";
     document.getElementById("mdiv").style.display = "none";
     document.getElementById("wooddiv").style.display = "block";
+    document.getElementById('goBack').style.display= "block";
+
 
 }
 
@@ -87,6 +94,8 @@ function openMetalE() {
     document.getElementById("ediv").style.display = "none";
     document.getElementById("fdiv").style.display = "none";
     document.getElementById("mdiv").style.display = "block";
+    document.getElementById('goBack').style.display= "block";
+
 
 }
 function openEarthE() {
@@ -99,4 +108,6 @@ function openEarthE() {
     document.getElementById("fdiv").style.display = "none";
     document.getElementById("mdiv").style.display = "none";
     document.getElementById("ediv").style.display = "block";
+    document.getElementById('goBack').style.display= "block";
+
 }

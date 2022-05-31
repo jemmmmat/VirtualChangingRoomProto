@@ -141,6 +141,37 @@ h2 {
   background-color: rgba(255, 0, 0, 0.217);
 }*/
 
+.elements {
+  padding-top: 10px;
+  border-color: transparent;
+  margin: 0 auto 10px ;
+  display: block;
+  background-color: #adabab; 
+  color: white;
+  border-radius: 3px;
+  border: none;
+  padding: 15px 0px 15px 0px;
+  width: 166px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+
+  cursor: pointer;
+}
+
+.elements button {
+  justify-items: center;
+}
+
+.elements:active {
+  border: 1px solid rgba(128, 128, 128, 0.559);
+}
+
+.elements img {
+  width: 100%;
+  height: 100%;
+}
+
 /* .imgList is list of images (clothes)*/
 .imgList {
   width: 100%;
@@ -228,7 +259,7 @@ img {
   padding: 1%;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  display: block;
   font-size: 16px;
   cursor: pointer;
   border-radius: 2px;
@@ -251,6 +282,14 @@ img {
   margin-top: 0;
 }
 
+#goBack {
+  display: none;
+  margin: 0 auto 0;
+  border-radius: 3px;
+  color: white;
+  border: 1px solid rgba(128, 128, 128, 0.548);
+  background-color: rgba(128, 128, 128, 0.358);;
+}
 /*------------Open and close clothes ends-------------*/
 
 /*----------Class of popups-------*/
@@ -296,6 +335,7 @@ img {
     width: 60px !important;
     height: 60px !important;
     border-radius: 50% !important;
+    margin: 0 auto 5px 0;
     cursor: pointer;
     position: relative;
     z-index: 700;
@@ -332,6 +372,21 @@ img {
     height: auto;
     overflow-x: hide;
     padding: 1px;
+  }
+
+  .elements {
+  padding-top: 5px;
+  border-color: transparent;
+  margin: 0 auto 10px ;
+  display: block;
+  background-color: #adabab; 
+  color: white;
+  border-radius: 3px;
+  border: none;
+  text-align: 0 auto 0;
+  text-decoration: none;
+  font-size: 12px;
+  max-width: 90%;
   }
 }
 
@@ -385,36 +440,7 @@ input[type="file"] {
   border-radius: 4px;
 }
 
-.elements {
-  padding-top: 10px;
-  border-color: transparent;
-  margin: 0 auto 10px ;
-  display: block;
-  background-color: #adabab; 
-  color: white;
-  border-radius: 3px;
-  border: none;
-  padding: 15px 32px;
-  width: 166px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
 
-  cursor: pointer;
-}
-
-.elements button {
-  justify-items: center;
-}
-
-.elements:active {
-  border: 1px solid rgba(128, 128, 128, 0.559);
-}
-
-.elements img {
-  width: 100%;
-  height: 100%;
-}
 
 #wdiv {
   display: none;

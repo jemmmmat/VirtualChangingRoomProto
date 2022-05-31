@@ -103,6 +103,7 @@
         </script>
 
         <script>
+            //Animation
             $('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
             $(window).on('load', function () {
                 setTimeout(removeLoader, 2000);
@@ -122,9 +123,9 @@
         <div class="main">
             <div id="img">
                 <script>/*$(function () {
-            $("img.dragme").imageScale();
-        });*/
-
+                $("img.dragme").imageScale();
+                    });*/
+                    //Block right click in img div
                     $('#img').bind('contextmenu', function (e) {
                         return false;
                     }); 
