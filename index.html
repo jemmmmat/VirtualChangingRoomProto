@@ -31,6 +31,16 @@
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5JPF058727"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5JPF058727');
+</script>
 </head>
 
 <body>
@@ -152,7 +162,7 @@
                     $('#img').bind('contextmenu', function (e) {
                         return false;
                     }); 
-                    
+
                     document.addEventListener("contextmenu", function (e) {
                     e.preventDefault();
                     }, false);
@@ -164,7 +174,7 @@
                         $(this).parent('div').remove();
                     });
                 </script>
-
+               
 
             </div>
         </div>
