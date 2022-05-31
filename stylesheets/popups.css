@@ -161,3 +161,25 @@ input[type="submit"] {
 .closeAlertbtn:hover {
   color: black;
 }*/
+
+@media only screen and (max-width: 767px) {
+  .popup {
+    background-color: #d2d2d2b2;
+    max-width: 90%;
+    padding: 30px 40px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    border-radius: 8px;
+    display: none;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    z-index: 800;
+  }
+  iframe {
+    display: block;
+    margin: 0 auto;
+    max-width: 90%;
+  }
+}
