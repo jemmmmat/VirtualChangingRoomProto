@@ -56,208 +56,6 @@ function addClothes(id) {
     var imgPath = document.getElementById(id).src;
     createDivs(imgPath);
 
-   
-    //Water elements
-    /* if (id == "ainikki-blue") {
-         var i = new Image();
-         var Imgdiv = document.getElementById("img");
-         var mamaDiv = document.createElement("div");
-         var rotateDiv = document.createElement("div");
-         var deleteBtn = document.createElement("button");
- 
-         i.onload = function () {
-             deleteBtn.setAttribute("id", "deleteCBtn");
-             deleteBtn.innerText = "X";
-             mamaDiv.appendChild(i);
-             mamaDiv.appendChild(rotateDiv);
-             mamaDiv.appendChild(deleteBtn);
-             Imgdiv.appendChild(mamaDiv);
-             rotateDiv.setAttribute("class", "rotation-handle");
-         };
-         i.src = "clothes/Water/Ainikki-blue.png";
-         // i.setAttribute("class", "resizeme");
- 
-         //   deleteBtn.setAttribute("onclick","deleteC;");
-         mamaDiv.setAttribute("class", "dragme");
- 
-     } else if (id == "mother-sea-black") {
-         var i = new Image();
-         var Imgdiv = document.getElementById("img");
-         var mamaDiv = document.createElement("div");
-         var rotateDiv = document.createElement("div");
-         var deleteBtn = document.createElement("button");
- 
-         i.onload = function () {
-             mamaDiv.appendChild(i);
-             mamaDiv.appendChild(rotateDiv);
-             mamaDiv.appendChild(deleteBtn);
-             Imgdiv.appendChild(mamaDiv);
-             rotateDiv.setAttribute("class", "rotation-handle");
-         };
-         i.src = "clothes/Water/aitimeri,musta.png";
-         // i.setAttribute("class", "resizeme");
-         deleteBtn.setAttribute("id", "deleteCBtn");
-         deleteBtn.innerText = "X";
-         // deleteBtn.setAttribute("onclick","deleteC;");
-         mamaDiv.setAttribute("class", "dragme");
- 
-     } else if (id == "ear-blue") {
-         var i = new Image();
-         var Imgdiv = document.getElementById("img");
-         var mamaDiv = document.createElement("div");
-         var rotateDiv = document.createElement("div");
-         var deleteBtn = document.createElement("button");
- 
-         i.onload = function () {
-             mamaDiv.appendChild(i);
-             mamaDiv.appendChild(rotateDiv);
-             mamaDiv.appendChild(deleteBtn);
-             Imgdiv.appendChild(mamaDiv);
-             rotateDiv.setAttribute("class", "rotation-handle");
-         };
-         i.src = "clothes/Water/korvis_sininen.png";
-         // i.setAttribute("class", "resizeme");
-         deleteBtn.setAttribute("id", "deleteCBtn");
-         deleteBtn.innerText = "X";
-         // deleteBtn.setAttribute("onclick","deleteC;");
-         mamaDiv.setAttribute("class", "dragme");
- 
-     } else if (id == "poncho-blue") {
-         var i = new Image();
-         var Imgdiv = document.getElementById("img");
-         var mamaDiv = document.createElement("div");
-         var rotateDiv = document.createElement("div");
-         var deleteBtn = document.createElement("button");
- 
-         i.onload = function () {
-             mamaDiv.appendChild(i);
-             mamaDiv.appendChild(rotateDiv);
-             mamaDiv.appendChild(deleteBtn);
-             Imgdiv.appendChild(mamaDiv);
-             rotateDiv.setAttribute("class", "rotation-handle");
-         };
-         i.src = "clothes/Water/sininen_poncho.png";
-         // i.setAttribute("class", "resizeme");
-         deleteBtn.setAttribute("id", "deleteCBtn");
-         deleteBtn.innerText = "X";
-         // deleteBtn.setAttribute("onclick","deleteC;");
-         mamaDiv.setAttribute("class", "dragme");
- 
- 
-     } else if (id == "sea-goddess-blue") {
-         var i = new Image();
-         var Imgdiv = document.getElementById("img");
-         var mamaDiv = document.createElement("div");
-         var rotateDiv = document.createElement("div");
-         var deleteBtn = document.createElement("button");
- 
-         i.onload = function () {
-             mamaDiv.appendChild(i);
-             mamaDiv.appendChild(rotateDiv);
-             mamaDiv.appendChild(deleteBtn);
-             Imgdiv.appendChild(mamaDiv);
-             rotateDiv.setAttribute("class", "rotation-handle");
-         };
-         i.src = "clothes/Water/turkoosi_sea_goddess_mekko.png";
-         // i.setAttribute("class", "resizeme");
-         deleteBtn.setAttribute("id", "deleteCBtn");
-         deleteBtn.innerText = "X";
-         // deleteBtn.setAttribute("onclick","deleteC;");
-         mamaDiv.setAttribute("class", "dragme");
- 
-         //Fire elements start 
-     } else if (id == "mother-sea-red") {
-         var i = new Image();
-         var Imgdiv = document.getElementById("img");
-         var mamaDiv = document.createElement("div");
-         var rotateDiv = document.createElement("div");
-         var deleteBtn = document.createElement("button");
- 
-         i.onload = function () {
-             deleteBtn.setAttribute("id", "deleteCBtn");
-             deleteBtn.innerText = "X";
-             mamaDiv.appendChild(i);
-             mamaDiv.appendChild(rotateDiv);
-             mamaDiv.appendChild(deleteBtn);
-             Imgdiv.appendChild(mamaDiv);
-             rotateDiv.setAttribute("class", "rotation-handle");
-         };
-         i.src = "clothes/Fire/aiti_meri_punainen.png";
-         // i.setAttribute("class", "resizeme");
- 
-         //   deleteBtn.setAttribute("onclick","deleteC;");
-         mamaDiv.setAttribute("class", "dragme");
- 
-     } else if (id == "heimo-orange") {
-         var i = new Image();
-         var Imgdiv = document.getElementById("img");
-         var mamaDiv = document.createElement("div");
-         var rotateDiv = document.createElement("div");
-         var deleteBtn = document.createElement("button");
- 
-         i.onload = function () {
-             deleteBtn.setAttribute("id", "deleteCBtn");
-             deleteBtn.innerText = "X";
-             mamaDiv.appendChild(i);
-             mamaDiv.appendChild(rotateDiv);
-             mamaDiv.appendChild(deleteBtn);
-             Imgdiv.appendChild(mamaDiv);
-             rotateDiv.setAttribute("class", "rotation-handle");
-         };
-         i.src = "clothes/Fire/heimo_auringonnousu_oranssi.png";
-         // i.setAttribute("class", "resizeme");
- 
-         //   deleteBtn.setAttribute("onclick","deleteC;");
-         mamaDiv.setAttribute("class", "dragme");
- 
-     } else if (id == "nordic-red") {
-         var i = new Image();
-         var Imgdiv = document.getElementById("img");
-         var mamaDiv = document.createElement("div");
-         var rotateDiv = document.createElement("div");
-         var deleteBtn = document.createElement("button");
- 
-         i.onload = function () {
-             deleteBtn.setAttribute("id", "deleteCBtn");
-             deleteBtn.innerText = "X";
-             mamaDiv.appendChild(i);
-             mamaDiv.appendChild(rotateDiv);
-             mamaDiv.appendChild(deleteBtn);
-             Imgdiv.appendChild(mamaDiv);
-             rotateDiv.setAttribute("class", "rotation-handle");
-         };
-         i.src = "clothes/Fire/pohjolan_amatsooni_mekko_pun.png";
-         // i.setAttribute("class", "resizeme");
- 
-         //   deleteBtn.setAttribute("onclick","deleteC;");
-         mamaDiv.setAttribute("class", "dragme");
- 
-     } else if (id == "nordic-light-red") {
-         var i = new Image();
-         var Imgdiv = document.getElementById("img");
-         var mamaDiv = document.createElement("div");
-         var rotateDiv = document.createElement("div");
-         var deleteBtn = document.createElement("button");
- 
-         i.onload = function () {
-             deleteBtn.setAttribute("id", "deleteCBtn");
-             deleteBtn.innerText = "X";
-             mamaDiv.appendChild(i);
-             mamaDiv.appendChild(rotateDiv);
-             mamaDiv.appendChild(deleteBtn);
-             Imgdiv.appendChild(mamaDiv);
-             rotateDiv.setAttribute("class", "rotation-handle");
-         };
-         i.src = "clothes/Fire/pohjolan_valo_punainen.png";
-         // i.setAttribute("class", "resizeme");
- 
-         //   deleteBtn.setAttribute("onclick","deleteC;");
-         mamaDiv.setAttribute("class", "dragme");
- 
-     } else {
-         console.log("-----> Choose what you wanna wear <------");
-     }*/
-
 
     //Draggable code start here
     //every draggable item has dragme-class
@@ -502,6 +300,8 @@ function addClothes(id) {
 
     }
 
+    
+
     // this function is used later in the resizing and gesture demos
     // window.dragMoveListener = dragMoveListener;
 
@@ -562,6 +362,8 @@ function addClothes(id) {
 
 
     }
+
+
 }
 
 //createDivs-function create img and divs to selected item
