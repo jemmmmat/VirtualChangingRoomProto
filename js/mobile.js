@@ -1,4 +1,4 @@
-var angle = 0
+/*var angle = 0
 
 interact('#rotation-handle').gesturable({
   listeners: {
@@ -13,4 +13,4 @@ interact('#rotation-handle').gesturable({
         angle.toFixed(2) + '\u00b0'
     }
   }
-})
+})*/
