@@ -1,5 +1,4 @@
 
-
 // Define the function 
 // to screenshot the div
 function takeshot() {
@@ -13,8 +12,8 @@ function takeshot() {
         .then(canvas => {
             const image = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream')
             const a = document.createElement('a')
-  
-            a.setAttribute('download', new Date().toISOString()+'_screenshot_virtualchangingroom.png')
+
+            a.setAttribute('download', new Date().toISOString() + '_screenshot_virtualchangingroom.png')
             a.setAttribute('href', image)
             a.click();
             canvas.remove();
@@ -50,7 +49,7 @@ function deleteImg() {
 }
 //---------------------------add clothes from sidemenu buttons-------------------------
 function addClothes(id) {
-    
+
     console.log("Lähetetään id: " + id);
     console.log("Katsotaan polku: " + document.getElementById(id).src);
     var imgPath = document.getElementById(id).src;
@@ -280,30 +279,24 @@ function addClothes(id) {
         target.setAttribute("data-y", y);
         target.setAttribute('data-angle', parseFloat(event.target.dataset.angle) || 0);
 
-
-       /* target.getAttribute("data-y") +
+        target.getAttribute("data-y") +
             "px) rotate(" +
             event.target.getAttribute("data-angle") +
             "rad" +
-            ")";*/
+            ")";
 
-
-
-
-        target.style.transform =
-            'translate(' + target.getAttribute('data-x') + 'px, '
-            + target.getAttribute('data-y') + 'px) rotate(' + target.getAttribute('data-angle') + 'rad' + ')';
-
+         target.style.transform =
+             'translate(' + target.getAttribute('data-x') + 'px, '
+             + target.getAttribute('data-y') + 'px) rotate(' + target.getAttribute('data-angle') + 'rad' + ')';
+  
         // Bring to front dragged element
         var t = event.target;
         t.parentNode.appendChild(target);
 
     }
 
-    
-
     // this function is used later in the resizing and gesture demos
-    // window.dragMoveListener = dragMoveListener;
+    window.dragMoveListener = dragMoveListener;
 
     //rotate
     interact(".rotation-handle").draggable({
@@ -317,6 +310,7 @@ function addClothes(id) {
             // get the angle of the element when the drag starts
             box.setAttribute("data-angle", getDragAngle(event));
         },
+
         onmove: function (event) {
             var box = event.target.parentElement;
 
@@ -350,6 +344,7 @@ function addClothes(id) {
     function getDragAngle(event) {
         console.log("getDragAngle activoitu>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
+
         var box = event.target.parentElement;
         var startAngle = parseFloat(box.getAttribute("data-angle")) || 0;
         var center = {
@@ -357,13 +352,11 @@ function addClothes(id) {
             y: parseFloat(box.getAttribute("data-center-y")) || 0,
         };
         var angle = Math.atan2(center.y - event.clientY, center.x - event.clientX);
-
         return angle - startAngle;
 
 
+
     }
-
-
 }
 
 //createDivs-function create img and divs to selected item
@@ -381,10 +374,16 @@ function createDivs(imgPath) {
         mamaDiv.appendChild(deleteBtn);
         Imgdiv.appendChild(mamaDiv);
         rotateDiv.setAttribute("class", "rotation-handle");
-        rotateDiv.innerHTML ='<span class="material-symbols-outlined drag">rotate_right</span>'
-        deleteBtn.innerHTML= '<span class="material-symbols-outlined drag">close</span>';
-    };  
+        rotateDiv.innerHTML = '<span class="material-symbols-outlined drag">rotate_right</span>'
+        deleteBtn.innerHTML = '<span class="material-symbols-outlined drag">close</span>';
+    };
     i.src = imgPath;
     mamaDiv.setAttribute("class", "dragme");
+    $(document).on('click','.dragme',function(){
+        console.log("moi" + this.target);
+        $('.dragme').click(function(){
+            $(this).parent().append(this);
+          });
+    })
 
 }
