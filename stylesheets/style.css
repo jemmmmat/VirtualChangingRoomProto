@@ -327,6 +327,18 @@ img {
     margin: 0 auto 5px;
     display: inline-block;
   }
+  /*#question-button is in .right-class div*/
+#question {
+  border: transparent;
+  background-color: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  top: 0px;
+  right: 0;
+  z-index: 5;
+}
   .main,
   #img {
     order: 1;
