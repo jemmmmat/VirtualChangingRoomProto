@@ -1,5 +1,17 @@
+window.addEventListener("load", function () {
+  setTimeout(
+      function open(event) {
+          document.querySelector(".popupPrivacy").style.display = "block";
+      },
+      1000
+  )
+})
 
-
+function allowPrivacyPolicy() {
+  if (event.target.id != "popupPrivacy") {
+    document.getElementById("popupPrivacy").style.display = "none";
+  }
+}
 function disable() {
   var plop = document.createElement("div");
   plop.innerHTML = "moi";
