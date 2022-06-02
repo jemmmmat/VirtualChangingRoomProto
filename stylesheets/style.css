@@ -42,7 +42,8 @@ h2 {
 }
 
 /*div where draggable divs are created*/
-#img {
+#img {  
+  background-image: url("/background_img.png");
   position: absolute;
   height: 97%;
   width: 75%;
@@ -52,7 +53,6 @@ h2 {
   border-radius: 4px;
   background-position: center;
   border-radius: 4px;
-  background-image: url("/icons/background_img.png");
   /* z-index: 1;*/
 }
 
