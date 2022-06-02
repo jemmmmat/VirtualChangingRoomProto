@@ -1,7 +1,8 @@
 /* Pop up window*/
 .popup {
   background-color: #d2d2d2b2;
-  width: 600px;
+  width: 70%;
+  max-height: 90%;
   padding: 30px 40px;
   position: absolute;
   transform: translate(-50%, -50%);
@@ -12,6 +13,8 @@
   font-family: "Poppins", sans-serif;
   text-align: center;
   z-index: 800;
+  overflow: scroll;
+
 }
 
 .popup button {
@@ -196,7 +199,7 @@ input[type="submit"] {
 @media only screen and (max-width: 767px) {
   .popup {
     background-color: #d2d2d2b2;
-    max-width: 90%;
+    max-width: 95%;
     padding: 30px 40px;
     position: absolute;
     transform: translate(-50%, -50%);
