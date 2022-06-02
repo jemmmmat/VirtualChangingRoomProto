@@ -72,6 +72,7 @@
 
       <div class="main">
         <div id="img">
+
           <script>
             //Block right click in img div
             $("#img").bind("contextmenu", function (e) {
@@ -92,7 +93,8 @@
       </div>
 
       <div class="right">
-        <!-- here is imagebuttons-->
+       <!-- <h2>Virtual Fitting Room</h2>
+         here is imagebuttons-->
         <button class="buttons" id="fileBtn">
           <label for="files" class="custom-file"
             ><span class="material-symbols-outlined">
@@ -123,7 +125,9 @@
         </button>
 
         <button id="screenS" class="buttons" onclick="takeshot()">
-          Screenshot
+          <span class="material-symbols-outlined">
+            file_download
+            </span>
         </button>
         <div id="small_buttons">
           <button

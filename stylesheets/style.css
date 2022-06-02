@@ -52,6 +52,7 @@ h2 {
   border-radius: 4px;
   background-position: center;
   border-radius: 4px;
+  background-image: url("/icons/background_img.png");
   /* z-index: 1;*/
 }
 
