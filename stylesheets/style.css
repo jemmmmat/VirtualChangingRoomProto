@@ -111,6 +111,7 @@ h2 {
   left: 0;
   border-radius: 50%;
   display: none;
+  position: absolute;
 
   /* background-size: 100% 100%;*/
   transform-origin: center center;
@@ -136,6 +137,8 @@ h2 {
   background-color: transparent;
   cursor: pointer;
   display: none;
+  position: absolute;
+
 
 }
 /*
