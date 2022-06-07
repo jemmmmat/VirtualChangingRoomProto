@@ -1,25 +1,28 @@
-
-// Define the function 
+// Define the function
 // to screenshot the div
 function takeshot() {
-    const captureElement = document.querySelector('#img')
+    const captureElement = document.querySelector("#img");
     html2canvas(document.querySelector(".main"))
-        .then(canvas => {
-            canvas.style.display = 'none'
-            document.body.appendChild(canvas)
-            return canvas
+        .then((canvas) => {
+            canvas.style.display = "none";
+            document.body.appendChild(canvas);
+            return canvas;
         })
-        .then(canvas => {
-            const image = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream')
-            const a = document.createElement('a')
+        .then((canvas) => {
+            const image = canvas
+                .toDataURL("image/png")
+                .replace("image/png", "image/octet-stream");
+            const a = document.createElement("a");
 
-            a.setAttribute('download', new Date().toISOString() + '_screenshot_virtualchangingroom.png')
-            a.setAttribute('href', image)
+            a.setAttribute(
+                "download",
+                new Date().toISOString() + "_screenshot_virtualchangingroom.png"
+            );
+            a.setAttribute("href", image);
             a.click();
             canvas.remove();
-        })
+        });
 }
-
 
 //download img from filesystem
 function choose() {
@@ -44,17 +47,26 @@ function deleteImg() {
     console.log("Background is deleted");
     var bg = document.getElementById("img");
     // bg.style.backgroundImage = "none";
-
-    bg.style.removeProperty('background');
+    bg.style.removeProperty("background");
+    //Create popup for 3 seconds
+    document.getElementById('myPopup').innerHTML = "Your image has been removed";
+    $("#myPopup").fadeIn();
+    setTimeout(function () { $("#myPopup").fadeOut(); }, 3000);
 }
-//---------------------------add clothes from sidemenu buttons-------------------------
-function addClothes(id) {
+//show notification when something happen
+//(for example user delete something)
+function testPopup() {
+    var popup = document.getElementById("myPopup");
 
+    popup.classList.toggle("show");
+}
+
+//Add clothes from sidemenu buttons
+function addClothes(id) {
     console.log("Lähetetään id: " + id);
     console.log("Katsotaan polku: " + document.getElementById(id).src);
     var imgPath = document.getElementById(id).src;
     createDivs(imgPath);
-
 
     //Draggable code start here
     //every draggable item has dragme-class
@@ -79,9 +91,7 @@ function addClothes(id) {
                     restriction: "parent",
                     endOnly: true,
                     elementRect: { left: 0, right: 0, top: 1, bottom: 1 },
-
                 }),
-
             ],
             listeners: {
                 start(event) {
@@ -91,7 +101,6 @@ function addClothes(id) {
                             "rotation-handle"
                         )
                     ) {
-
                         const element = event.target;
                         const rect = element.getBoundingClientRect();
 
@@ -101,7 +110,6 @@ function addClothes(id) {
 
                         // get the angle of the element when the drag starts
                         element.dataset.angle = getDragAngle(event);
-
                     }
                 },
                 move(event) {
@@ -113,7 +121,7 @@ function addClothes(id) {
 
                     console.log("rotation");
                     if (
-                        //past version target was path[0]. Changet it to target 
+                        //past version target was path[0]. Changet it to target
                         //--> path[0] didn't work with Firefox
                         event._interaction.downEvent.target.classList.contains(
                             "rotation-handle"
@@ -124,8 +132,12 @@ function addClothes(id) {
                         // update the element's style
                         event.target.style.width = event.rect.width + "px";
                         event.target.style.height = event.rect.height + "px";
-                        console.log("HELLDFKDFLSDLF----WIDTH------" + event.target.style.width);
-                        console.log("HELLDFKDFLSDLF----------HEIGHT----" + event.target.style.height);
+                        console.log(
+                            "HELLDFKDFLSDLF----WIDTH------" + event.target.style.width
+                        );
+                        console.log(
+                            "HELLDFKDFLSDLF----------HEIGHT----" + event.target.style.height
+                        );
                         // translate when resizing from top or left edges
                         x += event.deltaRect.left;
                         y += event.deltaRect.top;
@@ -170,7 +182,6 @@ function addClothes(id) {
                     restriction: "parent",
                     endOnly: true,
                     elementRect: { left: 0, right: 0, top: 1, bottom: 1 },
-
                 }),
             ],
         });
@@ -193,7 +204,6 @@ function addClothes(id) {
                 endOnly: true,
 
                 elementRect: { left: 10, right: 0, top: 1, bottom: 1 },
-
             }),
         ],
         // enable autoScroll
@@ -230,7 +240,7 @@ function addClothes(id) {
                 restriction: "parent",
                 //endOnly: true
                 /*   interact.modifiers.restrictEdges({
-                                           outer: 'parent'*/
+                                                   outer: 'parent'*/
             }),
         ],
         // enable autoScroll
@@ -242,7 +252,6 @@ function addClothes(id) {
 
             // call this function on every dragend event
             end(event) {
-
                 var textEl = event.target.querySelector("p");
 
                 textEl &&
@@ -277,7 +286,10 @@ function addClothes(id) {
         // update the position coordinates
         target.setAttribute("data-x", x);
         target.setAttribute("data-y", y);
-        target.setAttribute('data-angle', parseFloat(event.target.dataset.angle) || 0);
+        target.setAttribute(
+            "data-angle",
+            parseFloat(event.target.dataset.angle) || 0
+        );
 
         target.getAttribute("data-y") +
             "px) rotate(" +
@@ -285,14 +297,19 @@ function addClothes(id) {
             "rad" +
             ")";
 
-         target.style.transform =
-             'translate(' + target.getAttribute('data-x') + 'px, '
-             + target.getAttribute('data-y') + 'px) rotate(' + target.getAttribute('data-angle') + 'rad' + ')';
-  
+        target.style.transform =
+            "translate(" +
+            target.getAttribute("data-x") +
+            "px, " +
+            target.getAttribute("data-y") +
+            "px) rotate(" +
+            target.getAttribute("data-angle") +
+            "rad" +
+            ")";
+
         // Bring to front dragged element
         var t = event.target;
         t.parentNode.appendChild(target);
-
     }
 
     // this function is used later in the resizing and gesture demos
@@ -344,7 +361,6 @@ function addClothes(id) {
     function getDragAngle(event) {
         console.log("getDragAngle activoitu>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
-
         var box = event.target.parentElement;
         var startAngle = parseFloat(box.getAttribute("data-angle")) || 0;
         var center = {
@@ -353,9 +369,6 @@ function addClothes(id) {
         };
         var angle = Math.atan2(center.y - event.clientY, center.x - event.clientX);
         return angle - startAngle;
-
-
-
     }
 }
 
@@ -374,16 +387,17 @@ function createDivs(imgPath) {
         mamaDiv.appendChild(deleteBtn);
         Imgdiv.appendChild(mamaDiv);
         rotateDiv.setAttribute("class", "rotation-handle");
-        rotateDiv.innerHTML = '<span class="material-symbols-outlined drag">rotate_right</span>'
-        deleteBtn.innerHTML = '<span class="material-symbols-outlined drag">close</span>';
+        rotateDiv.innerHTML =
+            '<span class="material-symbols-outlined drag">rotate_right</span>';
+        deleteBtn.innerHTML =
+            '<span class="material-symbols-outlined drag">close</span>';
     };
     i.src = imgPath;
     mamaDiv.setAttribute("class", "dragme");
-    $(document).on('click','.dragme',function(){
+    $(document).on("click", ".dragme", function () {
         console.log("moi" + this.target);
-        $('.dragme').click(function(){
+        $(".dragme").click(function () {
             $(this).parent().append(this);
-          });
-    })
-
+        });
+    });
 }

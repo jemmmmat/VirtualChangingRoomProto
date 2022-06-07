@@ -236,3 +236,34 @@ input[type="submit"] {
     z-index: 800;
   }
 }
+
+
+/*---------------------------------------------------------*/
+/* Popup container - can be anything you want */
+#popup22 {
+  position: absolute;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+
+/* The actual popup */
+#popup22 .popuptext {
+  display: none;
+  width: 160px;
+  background-color: rgba(50, 110, 63, 0.607);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 20px 8px 20px;
+  position: absolute;
+  z-index: 900;
+  left: 50%;
+  margin-left: -80px;
+  margin-top: 20px;
+
+}
