@@ -78,40 +78,41 @@
     </script>
 
     <div class="main">
+      <!--This popup shows notifications-->
       <div id="popup22" class="animated">
         <span class="popuptext" id="myPopup">Notification</span>
       </div>
       <div id="img">
 
         <script>
-          //Block right click in img div
+
+          //Block right click in img div 
+          //Long press is right click in mobile devices and some devices don't reconize 
+          //long press and dragging from each others
           $("#img").bind("contextmenu", function (e) {
             return false;
           });
+
         </script>
         <script>
           //remove selected draggable element
           $(document).on("click", "#deleteCBtn", function () {
 
-            //Create popup for 3 seconds
+            //Create notification popup for 3 seconds
             document.getElementById('myPopup').innerHTML = "The product has been deleted!";
             $("#myPopup").fadeIn();
             setTimeout(function () { $("#myPopup").fadeOut(); }, 3000);
 
             $(this).parent("div").remove();
 
-
           });
-        </script>
-        <script>
 
         </script>
       </div>
     </div>
-
-    <div class="right">
-      <!-- <h2>Virtual Fitting Room</h2>
-         here is imagebuttons-->
+ <!--here is imagebuttons: add image from file system, delete image, open menu, take a 
+  screenshot and help-button-->
+    <div class="right"> 
       <button class="buttons" id="fileBtn">
         <label for="files" class="custom-file"><span class="material-symbols-outlined">
             add_photo_alternate
@@ -120,11 +121,10 @@
         <input id="files" type="file" name="image" id="file" onclick="choose()" />
       </button>
 
-      <!--Delete for img and clothes-->
       <button type="button" class="buttons" id="deleteBtn" onclick="deleteImg()">
         <span class="material-symbols-outlined"> delete </span>
       </button>
-
+    
       <button type="button" class="buttons" id="openNav" onclick="openNav()">
         <span class="material-symbols-outlined"> checkroom </span>
       </button>
@@ -139,6 +139,7 @@
       </div>
     </div>
 
+    <!--Menu which includes all draggable clothes-->
     <div class="scrollableDiv" id="mySidebar">
       <div id="scrollableDivTitle">
         <button id="closeNav" class="closeNav" onclick="closeNav()" style="position: sticky"><span
@@ -182,7 +183,6 @@
         </ul>
       </div>
 
-      <!-- Näitä ei vielä lisätty itse functioina app.js-->
       <button class="elements" onclick="openWoodE()">Wood</button>
       <div class="wooddiv" id="wooddiv">
         <ul class="imgList">
@@ -221,13 +221,6 @@
           <img src="clothes/Earth/heimo_korvakorut_puunhenki.png" id="heimo-ear-puuhenki"
             onclick="addClothes(this.id)" />
         </ul>
-        <!-- <ul class="imgList">
-            <img
-              src="clothes/Earth/keltainen_poncho.png"
-              id="poncho-yellow"
-              onclick="addClothes(this.id)"
-            />
-          </ul> -->
         <ul class="imgList">
           <img src="clothes/Earth/lahde_pronssi.png" id="source-bronze" onclick="addClothes(this.id)" />
         </ul>
