@@ -83,14 +83,13 @@ h2 {
   border: rgba(117, 128, 115, 0.717);
   background-color: rgba(117, 128, 115, 0.717);
 }
-
+/*hover for draggable image buttons*/
 .dragme:hover #deleteCBtn, #deleteCBtn:hover{
   display: inline-block;
   border:rgba(117, 128, 115, 0.717);
   background-color: rgba(117, 128, 115, 0.717);
 }
 
-/* Not sure yet do we need this one*/
 .dragme img {
   max-width: 100%;
   max-height: 100%;
@@ -112,7 +111,6 @@ h2 {
   border-radius: 50%;
   display: none;
   position: absolute;
-
   /* background-size: 100% 100%;*/
   transform-origin: center center;
   cursor: move;
@@ -120,11 +118,7 @@ h2 {
   touch-action: none;
   user-select: none;
 }
-/*
-.rotation-handle:hover {
-  border: rgba(255, 0, 0, 0.279);
-  background-color: rgba(255, 0, 0, 0.217);
-}*/
+
 
 /*This is draggable divs delete button*/
 #deleteCBtn {
@@ -138,15 +132,8 @@ h2 {
   cursor: pointer;
   display: none;
   position: absolute;
-
-
 }
-/*
-#deleteCBtn:hover {
-  border: rgba(255, 0, 0, 0.279);
-  background-color: rgba(255, 0, 0, 0.217);
-}*/
-
+/*elements buttons in menu*/
 .elements {
   padding-top: 10px;
   border-color: transparent;
@@ -161,7 +148,6 @@ h2 {
   text-align: center;
   text-decoration: none;
   font-size: 16px;
-
   cursor: pointer;
 }
 
@@ -226,12 +212,12 @@ img {
   bottom: 0px;
   z-index: 5;
 }
-/*This is just shity test-- not working*/
+/*This is just shity test-- not working
 .buttons.testi {
   font-size: 10px;
-}
+}*/
 
-/*------------Open and close div with clothes-------------*/
+/*Open and close div with clothes*/
 .scrollableDiv {
   height: 97%;
   width: 0%;
@@ -246,14 +232,6 @@ img {
 }
 
 #openNav {
-  /*  padding-top: 2%;
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    
-    border-radius: 2px;*/
   cursor: pointer;
 }
 
@@ -269,22 +247,11 @@ img {
   border-radius: 2px;
 }
 
-/* I think that we dont need this anymore
-#scrollableDivTitle {
-  background-color: #82828298;
-  color: rgb(50, 50, 50);
-  top: 0;
-  border: none;
-  display: inline-block;
-  width: 100%;
-  height: 5%;
-}*/
-
-
 #scrollableDivTitle button {
   margin-top: 0;
 }
 
+/*Back- button*/
 #goBack {
   display: none;
   margin: 0 auto 0;
@@ -293,9 +260,8 @@ img {
   border: 1px solid rgba(128, 128, 128, 0.548);
   background-color: rgba(128, 128, 128, 0.358);;
 }
-/*------------Open and close clothes ends-------------*/
 
-/*----------Class of popups-------*/
+/*Class of popups*/
 .material-symbols-outlined {
   color: rgba(116, 116, 116, 0.651);
 }
@@ -303,7 +269,7 @@ img {
 .material-symbols-outlined.drag{
   color: rgb(255, 255, 255);
 }
-/* ----------For mobile devices:------------------- */
+/*--------------For mobile devices:------------------- */
 @media only screen and (max-width: 767px) {
   html {
     
@@ -413,31 +379,14 @@ img {
 input[type="file"] {
   display: none;
 }
-
-/* this is for rotate images*/
+/*
 .rotation-handle {
-  /* height: 20px;
-  width: 20px;
-  padding: 3px 4px;
-  display: table;
-  position: absolute;
-  left: 50%;
-  right: 50%;
-  bottom: -35px;
-  background-color: red;
-  border-radius: 10rem;
-  line-height: 1;
-  text-align: center;
-  font-weight: bold;
-  color: #fff;
-  cursor: move;*/
-
-  /*These are important for touch actions*/
-  touch-action: none;
+  These are important for touch actions*/
+/*  touch-action: none;
   user-select: none;
-}
+}*/
 
-/*---------------Scrollbar style-------------*/
+/*Scrollbar style*/
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -461,7 +410,7 @@ input[type="file"] {
 }
 
 
-
+/*element divs for clothes*/
 #wdiv {
   display: none;
 }
@@ -487,11 +436,6 @@ input[type="file"] {
   width: 50px;
 }
 
-#screenS {
-  font-size: 10px;
-  color: rgb(58, 58, 58);
-  bottom: 6px;
-}
 .fa-solid.fa-shirt {
  
 }
