@@ -176,30 +176,6 @@ input[type="submit"] {
   float: right;
 }
 
-
-/*Alerts for click outside */
-/*
-.alert {
-  padding: 20px;
-  background-color: #84fa9388;
-  color: white;
-}
-
-.closeAlertbtn {
-  margin-left: 15px;
-  color: white;
-  font-weight: bold;
-  float: right;
-  font-size: 22px;
-  line-height: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.closeAlertbtn:hover {
-  color: black;
-}*/
-
 @media only screen and (max-width: 767px) {
   .popup {
     background-color: #d2d2d2b2;

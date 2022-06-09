@@ -95,7 +95,6 @@ function addClothes(id) {
             ],
             listeners: {
                 start(event) {
-                    console.log("resizetaan...." + " Seuraavaksi edges ");
                     if (
                         event._interaction.downEvent.target.classList.contains(
                             "rotation-handle"
@@ -271,7 +270,6 @@ function addClothes(id) {
         console.log("----------dragMoveListener activoitu");
         var target = event.target;
 
-        // Bring element in front of its siblings
         // keep the dragged position in the data-x/data-y attributes
         var x = (parseFloat(target.getAttribute("data-x")) || 0) + event.dx;
         var y = (parseFloat(target.getAttribute("data-y")) || 0) + event.dy;
@@ -291,13 +289,14 @@ function addClothes(id) {
             parseFloat(event.target.dataset.angle) || 0
         );
 
+        
         target.getAttribute("data-y") +
             "px) rotate(" +
             event.target.getAttribute("data-angle") +
             "rad" +
             ")";
 
-        target.style.transform =
+       target.style.transform =
             "translate(" +
             target.getAttribute("data-x") +
             "px, " +
@@ -310,6 +309,7 @@ function addClothes(id) {
         // Bring to front dragged element
         var t = event.target;
         t.parentNode.appendChild(target);
+
     }
 
     // this function is used later in the resizing and gesture demos
@@ -366,9 +366,13 @@ function addClothes(id) {
         var center = {
             x: parseFloat(box.getAttribute("data-center-x")) || 0,
             y: parseFloat(box.getAttribute("data-center-y")) || 0,
+            
         };
+        
         var angle = Math.atan2(center.y - event.clientY, center.x - event.clientX);
         return angle - startAngle;
+
+        
     }
 }
 
