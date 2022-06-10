@@ -13,13 +13,9 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,300&display=swap" rel="stylesheet" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-  <script src="js/animation.js"></script>
   <script src="js/elements.js"></script>
   <script src="js/app.js"></script>
-  <script src="js/mobile.js"></script>
   <script src="js/alerts.js"></script>
   <script src="https://unpkg.com/interactjs@1.10.11/dist/interact.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -80,8 +76,8 @@
 
         <script>
           //Block right click in img div 
-          //Long press is right click in mobile devices and some devices don't reconize 
-          //long press and dragging from each others
+          /*Long press is right click in mobile devices and some devices don't recognize 
+          long press and dragging from each others*/
           $("#img").bind("contextmenu", function (e) {
             return false;
           });
@@ -105,7 +101,7 @@
       </div>
     </div>
     <!--here is imagebuttons: add image from file system, delete image, open menu, take a 
-  screenshot and help-button-->
+    screenshot and help-button-->
     <div class="right">
       <button class="buttons" id="fileBtn">
         <label for="files" class="custom-file"><span class="material-symbols-outlined">
@@ -181,9 +177,6 @@
       <div class="wooddiv" id="wooddiv">
         <ul class="imgList">
           <img src="clothes/Wood/lehti_korvis.png" id="leaf_green" onclick="addClothes(this.id)" />
-        </ul>
-        <ul class="imgList">
-          <img src="clothes/Wood/lähde_korvakoru.png" id="source-green" onclick="addClothes(this.id)" />
         </ul>
         <ul class="imgList">
           <img src="clothes/Wood/nordic_light_green.png" id="nordic-light-green" onclick="addClothes(this.id)" />

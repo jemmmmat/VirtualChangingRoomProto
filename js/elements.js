@@ -20,7 +20,7 @@ document.addEventListener('mouseup', function (e) {
     }
 }.bind(this));
 
-
+//Back-button in menu
 function goBack() {
     var elems = document.getElementsByClassName('elements');
     for (var i = 0; i < elems.length; i += 1) {
@@ -32,12 +32,7 @@ function goBack() {
     document.getElementById("mdiv").style.display = "none";
     document.getElementById("ediv").style.display = "none";
     document.getElementById('goBack').style.display= "none";
-
-
-
 }
-
-
 
 function openWaterE() {
     var elems = document.getElementsByClassName('elements');
@@ -50,8 +45,6 @@ function openWaterE() {
     document.getElementById("mdiv").style.display = "none";
     document.getElementById("wdiv").style.display = "block";
     document.getElementById('goBack').style.display= "block";
-
-
 }
 
 function openFireE() {
@@ -65,9 +58,8 @@ function openFireE() {
     document.getElementById("mdiv").style.display = "none";
     document.getElementById("fdiv").style.display = "block";
     document.getElementById('goBack').style.display= "block";
-
-
 }
+
 function openWoodE() {
     var elems = document.getElementsByClassName('elements');
     for (var i = 0; i < elems.length; i += 1) {
@@ -79,8 +71,6 @@ function openWoodE() {
     document.getElementById("mdiv").style.display = "none";
     document.getElementById("wooddiv").style.display = "block";
     document.getElementById('goBack').style.display= "block";
-
-
 }
 
 function openMetalE() {
@@ -95,9 +85,8 @@ function openMetalE() {
     document.getElementById("fdiv").style.display = "none";
     document.getElementById("mdiv").style.display = "block";
     document.getElementById('goBack').style.display= "block";
-
-
 }
+
 function openEarthE() {
     var elems = document.getElementsByClassName('elements');
     for (var i = 0; i < elems.length; i += 1) {
@@ -109,5 +98,4 @@ function openEarthE() {
     document.getElementById("mdiv").style.display = "none";
     document.getElementById("ediv").style.display = "block";
     document.getElementById('goBack').style.display= "block";
-
 }

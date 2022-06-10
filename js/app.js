@@ -1,4 +1,7 @@
-// Define the function
+function loader() {
+    document.getElementById("loader").style.display = "none";
+}
+
 // to screenshot the div
 function takeshot() {
     const captureElement = document.querySelector("#img");
@@ -26,7 +29,6 @@ function takeshot() {
 
 //download img from filesystem
 function choose() {
-    console.log("Files clicked");
     const image_input = document.querySelector("#files");
 
     image_input.addEventListener("change", function () {
@@ -46,31 +48,21 @@ function choose() {
 function deleteImg() {
     console.log("Background is deleted");
     var bg = document.getElementById("img");
-    // bg.style.backgroundImage = "none";
     bg.style.removeProperty("background");
     //Create popup for 3 seconds
     document.getElementById('myPopup').innerHTML = "Your image has been removed";
     $("#myPopup").fadeIn();
     setTimeout(function () { $("#myPopup").fadeOut(); }, 3000);
 }
-//show notification when something happen
-//(for example user delete something)
-function testPopup() {
-    var popup = document.getElementById("myPopup");
-
-    popup.classList.toggle("show");
-}
 
 //Add clothes from sidemenu buttons
 function addClothes(id) {
-    console.log("Lähetetään id: " + id);
-    console.log("Katsotaan polku: " + document.getElementById(id).src);
     var imgPath = document.getElementById(id).src;
     createDivs(imgPath);
 
     //Draggable code start here
-    //every draggable item has dragme-class
-    //rotation class is rotation-handle
+    //every draggable item has .dragme
+    //class for rotation is .rotation-handle
     interact(".dragme")
         .resizable({
             // resize from all edges and corners
@@ -95,48 +87,31 @@ function addClothes(id) {
             ],
             listeners: {
                 start(event) {
-                    if (
-                        event._interaction.downEvent.target.classList.contains(
-                            "rotation-handle"
-                        )
-                    ) {
+                    if (event._interaction.downEvent.target.classList.contains("rotation-handle")) {
                         const element = event.target;
                         const rect = element.getBoundingClientRect();
 
                         // store the center as the element has css `transform-origin: center center`
-                        element.dataset.centerX = rect.left + rect.width / 2;
-                        element.dataset.centerY = rect.top + rect.height / 2;
+                     /*   element.dataset.centerX = rect.left + rect.width / 2;
+                        element.dataset.centerY = rect.top + rect.height / 2;*/
 
                         // get the angle of the element when the drag starts
                         element.dataset.angle = getDragAngle(event);
                     }
                 },
                 move(event) {
-                    console.log("resizetaan ja liikutaan");
-
                     let x = parseFloat(event.target.getAttribute("data-x")) || 0;
                     let y = parseFloat(event.target.getAttribute("data-y")) || 0;
                     let angle = parseFloat(event.target.getAttribute("data-angle")) || 0;
-
-                    console.log("rotation");
-                    if (
-                        //past version target was path[0]. Changet it to target
-                        //--> path[0] didn't work with Firefox
-                        event._interaction.downEvent.target.classList.contains(
-                            "rotation-handle"
-                        )
-                    ) {
+                    
+                    //past version target was path[0]. Changet it to target
+                    //--> path[0] didn't work with Firefox
+                    if (event._interaction.downEvent.target.classList.contains("rotation-handle")) {
                         angle = getDragAngle(event);
                     } else {
                         // update the element's style
                         event.target.style.width = event.rect.width + "px";
                         event.target.style.height = event.rect.height + "px";
-                        console.log(
-                            "HELLDFKDFLSDLF----WIDTH------" + event.target.style.width
-                        );
-                        console.log(
-                            "HELLDFKDFLSDLF----------HEIGHT----" + event.target.style.height
-                        );
                         // translate when resizing from top or left edges
                         x += event.deltaRect.left;
                         y += event.deltaRect.top;
@@ -145,24 +120,11 @@ function addClothes(id) {
                         event.target.setAttribute("data-y", y);
                     }
 
-                    event.target.style.transform =
-                        "translate(" +
-                        event.target.getAttribute("data-x") +
-                        "px," +
-                        event.target.getAttribute("data-y") +
-                        "px) rotate(" +
-                        angle +
-                        "rad" +
-                        ")";
+                    event.target.style.transform = "translate(" + event.target.getAttribute("data-x") +
+                        "px," + event.target.getAttribute("data-y") + "px) rotate(" + angle + "rad" + ")";
                 },
                 end(event) {
-                    console.log("resizetaan....lopetetaan?");
-
-                    if (
-                        event._interaction.downEvent.target.classList.contains(
-                            "rotation-handle"
-                        )
-                    ) {
+                    if (event._interaction.downEvent.target.classList.contains("rotation-handle") ) {
                         event.target.dataset.angle = getDragAngle(event);
                     }
                 },
@@ -185,13 +147,11 @@ function addClothes(id) {
             ],
         });
 
-    //--------------------------------draggable--------------------------------------
-    // target elements with the "draggable" class
+    //draggable
     interact(".dragme").draggable({
         // enable inertial throwing
         inertia: true,
         // keep the element within the area of it's parent
-
         modifiers: [
             interact.modifiers.restrictRect({
                 restriction: "parent",
@@ -214,7 +174,7 @@ function addClothes(id) {
 
             // call this function on every dragend event
             end(event) {
-                var textEl = event.target.querySelector("p");
+             /*   var textEl = event.target.querySelector("p");
 
                 textEl &&
                     (textEl.textContent =
@@ -224,7 +184,7 @@ function addClothes(id) {
                                 Math.pow(event.pageY - event.y0, 2)) |
                             0
                         ).toFixed(2) +
-                        "px");
+                        "px");*/
             },
         },
     });
@@ -237,9 +197,6 @@ function addClothes(id) {
         modifiers: [
             interact.modifiers.restrictRect({
                 restriction: "parent",
-                //endOnly: true
-                /*   interact.modifiers.restrictEdges({
-                                                   outer: 'parent'*/
             }),
         ],
         // enable autoScroll
@@ -251,7 +208,7 @@ function addClothes(id) {
 
             // call this function on every dragend event
             end(event) {
-                var textEl = event.target.querySelector("p");
+           /*     var textEl = event.target.querySelector("p");
 
                 textEl &&
                     (textEl.textContent =
@@ -261,13 +218,12 @@ function addClothes(id) {
                                 Math.pow(event.pageY - event.y0, 2)) |
                             0
                         ).toFixed(2) +
-                        "px");
+                        "px");*/
             },
         },
     });
 
     function dragMoveListener(event) {
-        console.log("----------dragMoveListener activoitu");
         var target = event.target;
 
         // keep the dragged position in the data-x/data-y attributes
@@ -313,9 +269,9 @@ function addClothes(id) {
     }
 
     // this function is used later in the resizing and gesture demos
-    window.dragMoveListener = dragMoveListener;
+  //  window.dragMoveListener = dragMoveListener;
 
-    //rotate
+    //rotation listeners
     interact(".rotation-handle").draggable({
         onstart: function (event) {
             var box = event.target.parentElement;
@@ -324,13 +280,13 @@ function addClothes(id) {
             // store the center as the element has css `transform-origin: center center`
             box.setAttribute("data-center-x", rect.left + rect.width / 2);
             box.setAttribute("data-center-y", rect.top + rect.height / 2);
+
             // get the angle of the element when the drag starts
             box.setAttribute("data-angle", getDragAngle(event));
         },
 
         onmove: function (event) {
             var box = event.target.parentElement;
-
             var pos = {
                 x: parseFloat(box.getAttribute("data-x")) || 0,
                 y: parseFloat(box.getAttribute("data-y")) || 0,
@@ -338,45 +294,34 @@ function addClothes(id) {
 
             var angle = getDragAngle(event);
 
-            // update transform style on dragmove
-            box.style.transform =
-                "translate(" +
-                pos.x +
-                "px, " +
-                pos.y +
-                "px) rotate(" +
-                angle +
-                "rad" +
-                ")";
+            // update position and angle
+            box.style.transform = "translate(" + pos.x + "px, " + 
+            pos.y + "px) rotate(" + angle + "rad" +")";
         },
         onend: function (event) {
             var box = event.target.parentElement;
 
-            // save the angle on dragend
+            //call getDragAngle function
             box.setAttribute("data-angle", getDragAngle(event));
-            //    console.log("kuha katteelen ymparilleni......................");
         },
     });
 
+    //getDragAngle function creates and saves new angle
     function getDragAngle(event) {
-        console.log("getDragAngle activoitu>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-
-        var box = event.target.parentElement;
+        var box = event.target;
         var startAngle = parseFloat(box.getAttribute("data-angle")) || 0;
         var center = {
-            x: parseFloat(box.getAttribute("data-center-x")) || 0,
-            y: parseFloat(box.getAttribute("data-center-y")) || 0,
+            x: parseFloat(box.parentNode.getAttribute("data-center-x")) || 0,
+            y: parseFloat(box.parentNode.getAttribute("data-center-y")) || 0,
             
         };
-        
         var angle = Math.atan2(center.y - event.clientY, center.x - event.clientX);
         return angle - startAngle;
-
-        
+    
     }
 }
 
-//createDivs-function create img and divs to selected item
+//createDivs-function create dragme div which inside is rotation-handle, deleteCBtn and image
 function createDivs(imgPath) {
     var i = new Image();
     var Imgdiv = document.getElementById("img");
