@@ -60,13 +60,12 @@ function addClothes(id) {
     var imgPath = document.getElementById(id).src;
     createDivs(imgPath);
 
-    //Draggable code start here
-    //every draggable item has .dragme
-    //class for rotation is .rotation-handle
+    //calling resizable method
     interact(".dragme")
         .resizable({
             // resize from all edges and corners
             allowFrom: ".dragme",
+            //specifies the edges of the element which can be resized
             edges: { left: true, right: true, bottom: true, top: true },
 
             modifiers: [
@@ -147,9 +146,8 @@ function addClothes(id) {
             ],
         });
 
-    //draggable
+    //draggable method starts
     interact(".dragme").draggable({
-        // enable inertial throwing
         inertia: true,
         // keep the element within the area of it's parent
         modifiers: [
@@ -268,10 +266,7 @@ function addClothes(id) {
 
     }
 
-    // this function is used later in the resizing and gesture demos
-  //  window.dragMoveListener = dragMoveListener;
-
-    //rotation listeners
+    //draggable method is also used to implement rotation
     interact(".rotation-handle").draggable({
         onstart: function (event) {
             var box = event.target.parentElement;
