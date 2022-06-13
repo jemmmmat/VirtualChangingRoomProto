@@ -33,7 +33,7 @@ h2 {
 
 }
 
-/*Div->Button menu on right side of the page*/
+/*Div-> Button menu on right side of the page*/
 .right {
   display: inline-block;
   align-items: center;
@@ -63,7 +63,7 @@ h2 {
   /* z-index: 1;*/
 }
 
-/*draggable and resizable images class*/
+/* draggable and resizable images class*/
 .dragme {
   border-radius: 2px;
   padding: 3px;
@@ -74,14 +74,12 @@ h2 {
   margin-right: 50%;
   position: absolute;
   display: table;
-
   /*--These are important for touch actions--*/
   touch-action: none;
   user-select: none;
 }
 .dragme:hover {
   border: 1px dotted rgba(128, 128, 128, 0.555);
-
 }
 
 /*hover for draggable images*/
@@ -118,8 +116,8 @@ h2 {
   border-radius: 50%;
   display: none;
   position: absolute;
-  /* background-size: 100% 100%;
-  transform-origin: center center;*/
+  /* background-size: 100% 100%;*/
+  transform-origin: center center;
   cursor: move;
   /*These are important for touch actions*/
   touch-action: none;
@@ -219,10 +217,6 @@ img {
   bottom: 0px;
   z-index: 5;
 }
-/*This is just shity test-- not working
-.buttons.testi {
-  font-size: 10px;
-}*/
 
 /*Open and close div with clothes*/
 .scrollableDiv {
@@ -390,12 +384,6 @@ img {
 input[type="file"] {
   display: none;
 }
-/*
-.rotation-handle {
-  These are important for touch actions*/
-/*  touch-action: none;
-  user-select: none;
-}*/
 
 /*Scrollbar style*/
 /* width */
