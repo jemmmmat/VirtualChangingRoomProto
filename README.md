@@ -9,6 +9,6 @@ Koska sovellus on selainpohjainen, se tarvitsee verkkoyhteyden.<br/>
 
 
 Interact.js informaatiota:<br/>
-https://interactjs.io/docs/#what-is-interactjs
+https://interactjs.io/docs/#what-is-interactjs <br/>
 https://interactjs.io/docs/api/Interactable.html
 <br/>
