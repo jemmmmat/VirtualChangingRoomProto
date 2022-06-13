@@ -91,8 +91,8 @@ function addClothes(id) {
                         const rect = element.getBoundingClientRect();
 
                         // store the center as the element has css `transform-origin: center center`
-                     /*   element.dataset.centerX = rect.left + rect.width / 2;
-                        element.dataset.centerY = rect.top + rect.height / 2;*/
+                        element.dataset.centerX = rect.left + rect.width / 2;
+                        element.dataset.centerY = rect.top + rect.height / 2;
 
                         // get the angle of the element when the drag starts
                         element.dataset.angle = getDragAngle(event);
@@ -172,7 +172,7 @@ function addClothes(id) {
 
             // call this function on every dragend event
             end(event) {
-             /*   var textEl = event.target.querySelector("p");
+                var textEl = event.target.querySelector("p");
 
                 textEl &&
                     (textEl.textContent =
@@ -182,7 +182,7 @@ function addClothes(id) {
                                 Math.pow(event.pageY - event.y0, 2)) |
                             0
                         ).toFixed(2) +
-                        "px");*/
+                        "px");
             },
         },
     });
@@ -206,7 +206,7 @@ function addClothes(id) {
 
             // call this function on every dragend event
             end(event) {
-           /*     var textEl = event.target.querySelector("p");
+               var textEl = event.target.querySelector("p");
 
                 textEl &&
                     (textEl.textContent =
@@ -216,7 +216,7 @@ function addClothes(id) {
                                 Math.pow(event.pageY - event.y0, 2)) |
                             0
                         ).toFixed(2) +
-                        "px");*/
+                        "px");
             },
         },
     });
