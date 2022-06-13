@@ -8,7 +8,7 @@ Sovellusta on lähdetty kehittämään moderneille verkkoselaimille, mahdollista
 Koska sovellus on selainpohjainen, se tarvitsee verkkoyhteyden.<br/>
 
 
-Interact.js informaatiota:
+Interact.js informaatiota:<br/>
 https://interactjs.io/docs/#what-is-interactjs
 https://interactjs.io/docs/api/Interactable.html
 <br/>

@@ -98,6 +98,8 @@ function addClothes(id) {
                         element.dataset.angle = getDragAngle(event);
                     }
                 },
+
+                // call this function on every dragmove event
                 move(event) {
                     let x = parseFloat(event.target.getAttribute("data-x")) || 0;
                     let y = parseFloat(event.target.getAttribute("data-y")) || 0;
@@ -111,10 +113,12 @@ function addClothes(id) {
                         // update the element's style
                         event.target.style.width = event.rect.width + "px";
                         event.target.style.height = event.rect.height + "px";
+
                         // translate when resizing from top or left edges
                         x += event.deltaRect.left;
                         y += event.deltaRect.top;
 
+                        // translate the element
                         event.target.setAttribute("data-x", x);
                         event.target.setAttribute("data-y", y);
                     }
@@ -232,6 +236,7 @@ function addClothes(id) {
             parseFloat(event.target.dataset.angle) || 0
         );
 
+        // translate the element
         target.style.transform = "translate(" + x + "px, " + y + "px)";
         target.style.transform = "translate(" + x + y + angle + "rad)";
 
@@ -293,6 +298,8 @@ function addClothes(id) {
             box.style.transform = "translate(" + pos.x + "px, " + 
             pos.y + "px) rotate(" + angle + "rad" +")";
         },
+
+        // call this function on every dragend event
         onend: function (event) {
             var box = event.target.parentElement;
 
