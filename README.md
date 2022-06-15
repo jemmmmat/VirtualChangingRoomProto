@@ -1,4 +1,4 @@
-# Virtuaalinen sovituskoppi/Paperinukke
+# Virtuaalinen sovituskoppi/Paperinukkesovellus
 
 Tämä on prototyyppi virtuaalisesta sovituskopista.<br/>
 Sovelluksella voit sovittaa oman valitsemasi valokuvan päälle vaatteita kirjastosta. Kuvan itsestäsi voit myös ottaa reaaliaikaisesti mobiililaitteella kun avaat tiedostokirjastoa.

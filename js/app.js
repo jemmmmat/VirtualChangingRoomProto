@@ -1,9 +1,6 @@
-function loader() {
-    document.getElementById("loader").style.display = "none";
-}
 
 // to screenshot the div
-function takeshot() {
+function screenshot() {
     const captureElement = document.querySelector("#img");
     html2canvas(document.querySelector(".main"))
         .then((canvas) => {
@@ -90,6 +87,7 @@ function addClothes(id) {
                         const element = event.target;
                         const rect = element.getBoundingClientRect();
 
+                        //lisätty
                         // store the center as the element has css `transform-origin: center center`
                         element.dataset.centerX = rect.left + rect.width / 2;
                         element.dataset.centerY = rect.top + rect.height / 2;
@@ -270,6 +268,7 @@ function addClothes(id) {
         t.parentNode.appendChild(target);
 
     }
+    window.dragMoveListener = dragMoveListener;
 
     //draggable method is also used to implement rotation
     interact(".rotation-handle").draggable({
@@ -291,7 +290,6 @@ function addClothes(id) {
                 x: parseFloat(box.getAttribute("data-x")) || 0,
                 y: parseFloat(box.getAttribute("data-y")) || 0,
             };
-
             var angle = getDragAngle(event);
 
             // update position and angle
@@ -313,17 +311,17 @@ function addClothes(id) {
         var box = event.target;
         var startAngle = parseFloat(box.getAttribute("data-angle")) || 0;
         var center = {
-            x: parseFloat(box.parentNode.getAttribute("data-center-x")) || 0,
-            y: parseFloat(box.parentNode.getAttribute("data-center-y")) || 0,
-            
-        };
+            x: parseFloat(box.parentElement.getAttribute("data-center-x")) || 0,
+            y: parseFloat(box.parentElement.getAttribute("data-center-y")) || 0,
+           
+        }; 
+       
         var angle = Math.atan2(center.y - event.clientY, center.x - event.clientX);
-        return angle - startAngle;
-    
+        return angle - startAngle;   
     }
 }
 
-//createDivs-function create dragme div which inside is rotation-handle, deleteCBtn and image
+//createDivs-function create .dragme div which inside is .rotation-handle div, deleteCBtn button and image
 function createDivs(imgPath) {
     var i = new Image();
     var Imgdiv = document.getElementById("img");
@@ -346,7 +344,6 @@ function createDivs(imgPath) {
     i.src = imgPath;
     mamaDiv.setAttribute("class", "dragme");
     $(document).on("click", ".dragme", function () {
-        console.log("moi" + this.target);
         $(".dragme").click(function () {
             $(this).parent().append(this);
         });

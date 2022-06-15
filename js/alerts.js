@@ -32,7 +32,6 @@ function closePopUp() {
   document.querySelector(".main").style.filter = "none";
   document.querySelector(".right").style.filter = "none";
   document.querySelector(".scrollableDiv").style.filter = "none";
-  //enable();
   if (event.target.id != "popup") {
     document.getElementById("popup").style.display = "none";
   }
